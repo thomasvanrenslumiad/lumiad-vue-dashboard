@@ -29,7 +29,7 @@ export default {
     },
     filterByDepartment(newAfdeling) {
       let filterKey = newAfdeling
-      const result = Object.entries(dummy).filter(([k ]) => k === filterKey)
+      const result = Object.entries(dummy).filter(([k]) => k === filterKey)
       console.log(Object.fromEntries(result))
       console.log(this.afdeling)
     },
@@ -42,7 +42,7 @@ export default {
     <div v-for="infusion in allInfusions" :key="infusion.id" class="">
       <button
         @click="routeIt(infusion.id)"
-        class="m-2 flex 4xl:w-[19.5VW] w-[19VW] cursor-pointer rounded-[1vw] bg-gray-400 hover:bg-gray-500 hover:text-white focus:bg-gray-600 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black active:bg-gray-700 active:text-white active:text-white"
+        class="m-2 flex 4xl:w-[19.5VW] w-[19VW] cursor-pointer rounded-[1vw] bg-gray-400 hover:bg-gray-500 hover:text-white focus:bg-gray-600 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black active:bg-gray-700 active:text-white "
       >
         <div
           class="mr-2 ml-1 bg-${data.status}-500 rounded-2xl pr-2 pl-2 text-center bg-[var(--customPadding)]-500"

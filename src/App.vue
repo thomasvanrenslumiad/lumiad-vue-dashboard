@@ -1,9 +1,9 @@
 <script setup>
-import {  RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import InfusionsButtons from '@/components/InfusionButtons.vue'
 
 import { Icon } from '@iconify/vue'
-import {  provide } from 'vue'
+import { provide } from 'vue'
 import {
   SelectContent,
   SelectItem,
@@ -17,8 +17,6 @@ import {
   SelectValue,
   SelectViewport,
 } from 'radix-vue'
-
-// const afdeling = ref()
 
 const options = [
   'Spoedeisende Hulp',
@@ -85,7 +83,6 @@ provide('afdeling', afdeling)
         </SelectContent>
       </SelectPortal>
     </SelectRoot>
-    <!--    <img src="./assets/ziekenhuis.svg" alt="logo" class="relative h-[3vw] bg-blue-300" />-->
   </header>
   <section class="md:flex xl:h-[78vh] overflow-hidden">
     <div class="m-3 md:w-4/5 flex-initial bg-gray-200 p-2">
@@ -113,12 +110,9 @@ provide('afdeling', afdeling)
         class="m-5 h-[10vh] md:w-[88vw] flex-initial overflow-hidden rounded-[2vw] bg-gray-200 p-5 font-[Open_Sans] text-2xl text-ellipsis md:overflow-auto [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
       >
         <RouterView />
-        <!--			<InfusionComponent {currentId} ></InfusionComponent>-->
       </div>
     </div>
-    <!--	<div class="bg-gray-200 w-2/5 flex-initial font-[Open_Sans] m-5 p-5  text-2xl  text-center" >[verzameling van aanvullende data]</div>-->
     <div class="mr-5 mb-3 h-[11vh] md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200">
-      <!--      <Toaster />-->
       <button
         type="button"
         class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] bg-sky-300 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"
