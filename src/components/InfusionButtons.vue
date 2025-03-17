@@ -6,11 +6,12 @@ export default {
   data() {
     return {
       allInfusions: dummy,
+      selectedInfusions: null
     }
   },
   watch: {
     '$component.props.afdeling'(newAfdeling) {
-      this.filterByDepartment(newAfdeling) //Fetch item on component creation
+      this.fetchItem(newAfdeling) //Fetch item on component creation
     },
   },
   created() {
@@ -32,6 +33,9 @@ export default {
       const result = Object.entries(dummy).filter(([k]) => k === filterKey)
       console.log(Object.fromEntries(result))
       console.log(this.afdeling)
+    },
+    fetchItem(afdeling) {
+      this.selectedInfusions = this.allInfusions.find((infusion) => infusion.department === afdeling) //check all the dummydata for the single dataitem with the matching Id
     },
   },
 }

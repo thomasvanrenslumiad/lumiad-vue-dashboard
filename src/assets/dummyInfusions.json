@@ -1,6 +1,6 @@
 [
   {
-    "department": "ICU",
+    "department": "Chirurgie",
     "ward": "ward 2",
     "bed": "bed 3",
     "drug": "morphine",
@@ -10,7 +10,7 @@
     "id": "26458751"
   },
   {
-    "department": "ICU",
+    "department": "Oncologie",
     "ward": "ward 1",
     "bed": "bed 5",
     "drug": "fentanyl",
@@ -20,7 +20,7 @@
     "id": "37281690"
   },
   {
-    "department": "ICU",
+    "department": "Pediatrie",
     "ward": "ward 3",
     "bed": "bed 2",
     "drug": "ketamine",
@@ -30,7 +30,7 @@
     "id": "15837462"
   },
   {
-    "department": "ICU",
+    "department": "Verloskunde",
     "ward": "ward 4",
     "bed": "bed 7",
     "drug": "propofol",
@@ -40,7 +40,7 @@
     "id": "48392015"
   },
   {
-    "department": "ICU",
+    "department": "Spoedeisende Hulp",
     "ward": "ward 2",
     "bed": "bed 4",
     "drug": "midazolam",
@@ -50,7 +50,7 @@
     "id": "56483901"
   },
   {
-    "department": "ICU",
+    "department": "Psychiatrie",
     "ward": "ward 1",
     "bed": "bed 2",
     "drug": "lorazepam",
@@ -60,7 +60,7 @@
     "id": "73918264"
   },
   {
-    "department": "ICU",
+    "department": "Geriatrie",
     "ward": "ward 5",
     "bed": "bed 3",
     "drug": "dexmedetomidine",
@@ -70,7 +70,7 @@
     "id": "28476392"
   },
   {
-    "department": "ICU",
+    "department": "Kardiochirurgie",
     "ward": "ward 3",
     "bed": "bed 1",
     "drug": "naloxone",
@@ -80,7 +80,7 @@
     "id": "19273864"
   },
   {
-    "department": "ICU",
+    "department": "Oncologie",
     "ward": "ward 4",
     "bed": "bed 6",
     "drug": "pentobarbital",
@@ -90,7 +90,7 @@
     "id": "92837465"
   },
   {
-    "department": "ICU",
+    "department": "Chirurgie",
     "ward": "ward 1",
     "bed": "bed 8",
     "drug": "hydromorphone",
@@ -100,7 +100,7 @@
     "id": "62834715"
   },
   {
-    "department": "ICU",
+    "department": "Verloskunde",
     "ward": "ward 2",
     "bed": "bed 9",
     "drug": "remifentanil",
@@ -110,7 +110,7 @@
     "id": "10394826"
   },
   {
-    "department": "ICU",
+    "department": "Psychiatrie",
     "ward": "ward 1",
     "bed": "bed 5",
     "drug": "fentanyl",
@@ -120,7 +120,7 @@
     "id": "37281690"
   },
   {
-    "department": "ICU",
+    "department": "Kardiochirurgie",
     "ward": "ward 3",
     "bed": "bed 2",
     "drug": "ketamine",
@@ -130,7 +130,7 @@
     "id": "15837462"
   },
   {
-    "department": "ICU",
+    "department": "Geriatrie",
     "ward": "ward 4",
     "bed": "bed 7",
     "drug": "propofol",
@@ -140,7 +140,7 @@
     "id": "48392015"
   },
   {
-    "department": "ICU",
+    "department": "Oncologie",
     "ward": "ward 2",
     "bed": "bed 4",
     "drug": "midazolam",
@@ -150,7 +150,7 @@
     "id": "56483901"
   },
   {
-    "department": "ICU",
+    "department": "Spoedeisende Hulp",
     "ward": "ward 1",
     "bed": "bed 2",
     "drug": "lorazepam",
@@ -160,7 +160,7 @@
     "id": "73918264"
   },
   {
-    "department": "ICU",
+    "department": "Pediatrie",
     "ward": "ward 5",
     "bed": "bed 3",
     "drug": "dexmedetomidine",
@@ -170,7 +170,7 @@
     "id": "28476392"
   },
   {
-    "department": "ICU",
+    "department": "Psychiatrie",
     "ward": "ward 3",
     "bed": "bed 1",
     "drug": "naloxone",
@@ -180,7 +180,7 @@
     "id": "19273864"
   },
   {
-    "department": "ICU",
+    "department": "Geriatrie",
     "ward": "ward 4",
     "bed": "bed 6",
     "drug": "pentobarbital",
@@ -190,7 +190,7 @@
     "id": "92837465"
   },
   {
-    "department": "ICU",
+    "department": "Verloskunde",
     "ward": "ward 1",
     "bed": "bed 8",
     "drug": "hydromorphone",
@@ -200,7 +200,7 @@
     "id": "62834715"
   },
   {
-    "department": "ICU",
+    "department": "Chirurgie",
     "ward": "ward 2",
     "bed": "bed 9",
     "drug": "remifentanil",
