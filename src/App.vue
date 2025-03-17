@@ -44,13 +44,10 @@ function returnToAllInfusions() {
 
 watch(afdeling, (newAfdeling) => {
   if (newAfdeling === 'Overzicht') {
-    console.log('bij het overzicht')
     returnToAllInfusions()
     return
   }
   filterAllInfusions(newAfdeling)
-  console.log(`afdeling is ${newAfdeling}`)
-  console.log(currentInfusions)
 })
 </script>
 
@@ -120,7 +117,7 @@ watch(afdeling, (newAfdeling) => {
         </thead>
       </table>
       <div class="fixed 4xl:top-40 md:top-32 h-[72vh] w-[20vw] overflow-auto">
-        <div v-for="infusion in currentInfusions" :key="index">
+        <div v-for="infusion in currentInfusions" :key="infusion.id  + Math.random()">
           <InfusionButtons
             :id="infusion.id"
             :status="infusion.status"
