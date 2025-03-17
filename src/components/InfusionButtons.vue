@@ -15,26 +15,25 @@ export default {
   },
   created() {
     const afdeling = this.afdeling
-    this.filterByDepartment(afdeling);
+    this.filterByDepartment(afdeling)
   },
 
-  watchEffect:(() => {
-  // runs only once before 3.5
-  // re-runs when the "foo" prop changes in 3.5+
-  console.log(this.afdeling)
-}),
+  watchEffect: () => {
+    // runs only once before 3.5
+    // re-runs when the "foo" prop changes in 3.5+
+    console.log(this.afdeling)
+  },
   methods: {
     routeIt(infusionID) {
       this.$router.push({ name: 'Infusion-details', params: { infusionId: infusionID } })
     },
     filterByDepartment(newAfdeling) {
       let filterKey = newAfdeling
-      const result = Object.entries(dummy).filter(([k, v]) => k === filterKey)
+      const result = Object.entries(dummy).filter(([k ]) => k === filterKey)
       console.log(Object.fromEntries(result))
-      console.log(this.afdeling);
+      console.log(this.afdeling)
     },
   },
-
 }
 </script>
 
@@ -52,7 +51,9 @@ export default {
           1
         </div>
         <div class="w-4/5 truncate pl-2 text-ellipsis">{{ infusion.ward }} {{ infusion.bed }}</div>
-        <div class="rounded-2xl bg-red-500 truncate pl-2 w-[4vw]  absolute right-3">{{ infusion.drug }}</div>
+        <div class="rounded-2xl bg-red-500 truncate pl-2 w-[4vw] absolute right-3">
+          {{ infusion.drug }}
+        </div>
       </button>
     </div>
   </div>

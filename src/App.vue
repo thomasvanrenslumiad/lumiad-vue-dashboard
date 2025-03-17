@@ -1,12 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import {  RouterView } from 'vue-router'
 import InfusionsButtons from '@/components/InfusionButtons.vue'
 
 import { Icon } from '@iconify/vue'
-import { ref, provide } from 'vue'
+import {  provide } from 'vue'
 import {
   SelectContent,
-  SelectGroup,
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
@@ -61,21 +60,21 @@ provide('afdeling', afdeling)
           </SelectScrollUpButton>
 
           <SelectViewport class="p-[5px]">
-              <SelectItem
-                v-for="(option, index) in options"
-                :key="index"
-                class="text-[13px] leading-none text-grass11 rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-gray-500 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-blue-900 data-[highlighted]:text-white "
-                :value="option"
+            <SelectItem
+              v-for="(option, index) in options"
+              :key="index"
+              class="text-[13px] leading-none text-grass11 rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-gray-500 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-blue-900 data-[highlighted]:text-white"
+              :value="option"
+            >
+              <SelectItemIndicator
+                class="absolute left-0 w-[25px] inline-flex items-center justify-center"
               >
-                <SelectItemIndicator
-                  class="absolute left-0 w-[25px] inline-flex items-center justify-center"
-                >
-                  <Icon icon="radix-icons:check" />
-                </SelectItemIndicator>
-                <SelectItemText>
-                  {{ option }}
-                </SelectItemText>
-              </SelectItem>
+                <Icon icon="radix-icons:check" />
+              </SelectItemIndicator>
+              <SelectItemText>
+                {{ option }}
+              </SelectItemText>
+            </SelectItem>
           </SelectViewport>
 
           <SelectScrollDownButton
@@ -90,7 +89,7 @@ provide('afdeling', afdeling)
   </header>
   <section class="md:flex xl:h-[78vh] overflow-hidden">
     <div class="m-3 md:w-4/5 flex-initial bg-gray-200 p-2">
-      <h1>{{afdeling}}</h1>
+      <h1>{{ afdeling }}</h1>
     </div>
     <aside class="md:w-[21vw] m-3 flex-initial bg-gray-200 p-2 overflow-x-hidden">
       <table class="table-fixed">
@@ -103,7 +102,7 @@ provide('afdeling', afdeling)
         </thead>
       </table>
       <div class="fixed 4xl:top-40 md:top-32 h-[72vh] w-[20vw] overflow-auto">
-        <InfusionsButtons ></InfusionsButtons>
+        <InfusionsButtons></InfusionsButtons>
       </div>
     </aside>
   </section>
