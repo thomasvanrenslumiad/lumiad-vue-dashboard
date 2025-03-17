@@ -1,9 +1,10 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import InfusionsButtons from '@/components/InfusionButtons.vue'
+import AllInfusions from '@/assets/dummyInfusions.json'
+import InfusionButtons from '@/components/InfusionButtons.vue'
 
 import { Icon } from '@iconify/vue'
-import { provide } from 'vue'
+import { provide, watch } from 'vue'
 import {
   SelectContent,
   SelectItem,
@@ -18,7 +19,10 @@ import {
   SelectViewport,
 } from 'radix-vue'
 
+let currentInfusions = AllInfusions
+
 const options = [
+  'Overzicht',
   'Spoedeisende Hulp',
   'Chirurgie',
   'Geriatrie',
@@ -28,9 +32,26 @@ const options = [
   'Pediatrie',
   'Psychiatrie',
 ]
-
 const afdeling = defineModel()
 provide('afdeling', afdeling)
+
+function filterAllInfusions(afdeling) {
+  currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
+}
+function returnToAllInfusions() {
+  currentInfusions = AllInfusions
+}
+
+watch(afdeling, (newAfdeling) => {
+  if (newAfdeling === 'Overzicht') {
+    console.log('bij het overzicht')
+    returnToAllInfusions()
+    return
+  }
+  filterAllInfusions(newAfdeling)
+  console.log(`afdeling is ${newAfdeling}`)
+  console.log(currentInfusions)
+})
 </script>
 
 <template>
@@ -99,7 +120,15 @@ provide('afdeling', afdeling)
         </thead>
       </table>
       <div class="fixed 4xl:top-40 md:top-32 h-[72vh] w-[20vw] overflow-auto">
-        <InfusionsButtons></InfusionsButtons>
+        <div v-for="infusion in currentInfusions" >
+          <InfusionButtons
+            :id="infusion.id"
+            :status="infusion.status"
+            :ward="infusion.ward"
+            :bed="infusion.bed"
+            :drug="infusion.drug"
+          />
+        </div>
       </div>
     </aside>
   </section>
