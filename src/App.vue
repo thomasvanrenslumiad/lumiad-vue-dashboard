@@ -120,7 +120,7 @@ watch(afdeling, (newAfdeling) => {
         </thead>
       </table>
       <div class="fixed 4xl:top-40 md:top-32 h-[72vh] w-[20vw] overflow-auto">
-        <div v-for="infusion in currentInfusions" >
+        <div v-for="infusion in currentInfusions" :key="index">
           <InfusionButtons
             :id="infusion.id"
             :status="infusion.status"
