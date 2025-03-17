@@ -1,6 +1,5 @@
 <script>
 import dummy from '../assets/dummyInfusions.json'
-import { watchEffect } from 'vue'
 export default {
   name: 'InfusionsButtons',
   props: ['afdeling'],
