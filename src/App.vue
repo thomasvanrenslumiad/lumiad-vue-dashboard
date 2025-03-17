@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import AllInfusions from '@/assets/dummyInfusions.json'
+import AllInfusions from '@/assets/generated_data_unique.json'
 import InfusionButtons from '@/components/InfusionButtons.vue'
 
 import { Icon } from '@iconify/vue'

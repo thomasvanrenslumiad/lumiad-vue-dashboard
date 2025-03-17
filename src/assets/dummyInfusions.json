@@ -208,5 +208,425 @@
     "totalMl": 250,
     "remainingMl": 100,
     "id": "10394826"
+  },
+  {
+    "department": "Chirurgie",
+    "ward": "ward 6",
+    "bed": "bed 4",
+    "drug": "morphine",
+    "status": "red",
+    "totalMl": 180,
+    "remainingMl": 50,
+    "id": "26458752"
+  },
+  {
+    "department": "Oncologie",
+    "ward": "ward 3",
+    "bed": "bed 7",
+    "drug": "fentanyl",
+    "status": "orange",
+    "totalMl": 400,
+    "remainingMl": 150,
+    "id": "37281691"
+  },
+  {
+    "department": "Pediatrie",
+    "ward": "ward 2",
+    "bed": "bed 5",
+    "drug": "ketamine",
+    "status": "green",
+    "totalMl": 250,
+    "remainingMl": 200,
+    "id": "15837463"
+  },
+  {
+    "department": "Verloskunde",
+    "ward": "ward 3",
+    "bed": "bed 6",
+    "drug": "propofol",
+    "status": "red",
+    "totalMl": 350,
+    "remainingMl": 50,
+    "id": "48392016"
+  },
+  {
+    "department": "Spoedeisende Hulp",
+    "ward": "ward 4",
+    "bed": "bed 8",
+    "drug": "midazolam",
+    "status": "green",
+    "totalMl": 250,
+    "remainingMl": 225,
+    "id": "56483902"
+  },
+  {
+    "department": "Psychiatrie",
+    "ward": "ward 2",
+    "bed": "bed 3",
+    "drug": "lorazepam",
+    "status": "orange",
+    "totalMl": 220,
+    "remainingMl": 100,
+    "id": "73918265"
+  },
+  {
+    "department": "Geriatrie",
+    "ward": "ward 5",
+    "bed": "bed 4",
+    "drug": "dexmedetomidine",
+    "status": "red",
+    "totalMl": 500,
+    "remainingMl": 350,
+    "id": "28476393"
+  },
+  {
+    "department": "Kardiochirurgie",
+    "ward": "ward 1",
+    "bed": "bed 3",
+    "drug": "naloxone",
+    "status": "green",
+    "totalMl": 150,
+    "remainingMl": 140,
+    "id": "19273865"
+  },
+  {
+    "department": "Oncologie",
+    "ward": "ward 5",
+    "bed": "bed 9",
+    "drug": "pentobarbital",
+    "status": "orange",
+    "totalMl": 250,
+    "remainingMl": 200,
+    "id": "92837466"
+  },
+  {
+    "department": "Chirurgie",
+    "ward": "ward 7",
+    "bed": "bed 6",
+    "drug": "hydromorphone",
+    "status": "red",
+    "totalMl": 600,
+    "remainingMl": 400,
+    "id": "62834716"
+  },
+  {
+    "department": "Verloskunde",
+    "ward": "ward 6",
+    "bed": "bed 7",
+    "drug": "remifentanil",
+    "status": "green",
+    "totalMl": 350,
+    "remainingMl": 300,
+    "id": "10394827"
+  },
+  {
+    "department": "Psychiatrie",
+    "ward": "ward 4",
+    "bed": "bed 1",
+    "drug": "fentanyl",
+    "status": "orange",
+    "totalMl": 300,
+    "remainingMl": 250,
+    "id": "37281691"
+  },
+  {
+    "department": "Kardiochirurgie",
+    "ward": "ward 2",
+    "bed": "bed 4",
+    "drug": "ketamine",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 480,
+    "id": "15837464"
+  },
+  {
+    "department": "Geriatrie",
+    "ward": "ward 6",
+    "bed": "bed 8",
+    "drug": "propofol",
+    "status": "orange",
+    "totalMl": 400,
+    "remainingMl": 300,
+    "id": "48392017"
+  },
+  {
+    "department": "Oncologie",
+    "ward": "ward 3",
+    "bed": "bed 2",
+    "drug": "midazolam",
+    "status": "red",
+    "totalMl": 180,
+    "remainingMl": 50,
+    "id": "56483903"
+  },
+  {
+    "department": "Spoedeisende Hulp",
+    "ward": "ward 1",
+    "bed": "bed 9",
+    "drug": "lorazepam",
+    "status": "green",
+    "totalMl": 250,
+    "remainingMl": 200,
+    "id": "73918266"
+  },
+  {
+    "department": "Pediatrie",
+    "ward": "ward 4",
+    "bed": "bed 5",
+    "drug": "dexmedetomidine",
+    "status": "orange",
+    "totalMl": 300,
+    "remainingMl": 150,
+    "id": "28476394"
+  },
+  {
+    "department": "Psychiatrie",
+    "ward": "ward 5",
+    "bed": "bed 3",
+    "drug": "naloxone",
+    "status": "red",
+    "totalMl": 120,
+    "remainingMl": 80,
+    "id": "19273866"
+  },
+  {
+    "department": "Geriatrie",
+    "ward": "ward 3",
+    "bed": "bed 6",
+    "drug": "pentobarbital",
+    "status": "green",
+    "totalMl": 200,
+    "remainingMl": 180,
+    "id": "92837467"
+  },
+  {
+    "department": "Verloskunde",
+    "ward": "ward 5",
+    "bed": "bed 2",
+    "drug": "hydromorphone",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 450,
+    "id": "62834717"
+  },
+  {
+    "department": "Chirurgie",
+    "ward": "ward 4",
+    "bed": "bed 8",
+    "drug": "remifentanil",
+    "status": "orange",
+    "totalMl": 250,
+    "remainingMl": 100,
+    "id": "10394828"
+  },
+  {
+    "department": "Chirurgie",
+    "ward": "ward 6",
+    "bed": "bed 5",
+    "drug": "morphine",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 475,
+    "id": "26458753"
+  },
+  {
+    "department": "Oncologie",
+    "ward": "ward 2",
+    "bed": "bed 8",
+    "drug": "fentanyl",
+    "status": "red",
+    "totalMl": 350,
+    "remainingMl": 20,
+    "id": "37281692"
+  },
+  {
+    "department": "Pediatrie",
+    "ward": "ward 4",
+    "bed": "bed 6",
+    "drug": "ketamine",
+    "status": "orange",
+    "totalMl": 200,
+    "remainingMl": 120,
+    "id": "15837465"
+  },
+  {
+    "department": "Verloskunde",
+    "ward": "ward 1",
+    "bed": "bed 3",
+    "drug": "propofol",
+    "status": "green",
+    "totalMl": 600,
+    "remainingMl": 500,
+    "id": "48392018"
+  },
+  {
+    "department": "Spoedeisende Hulp",
+    "ward": "ward 2",
+    "bed": "bed 1",
+    "drug": "midazolam",
+    "status": "red",
+    "totalMl": 400,
+    "remainingMl": 350,
+    "id": "56483904"
+  },
+  {
+    "department": "Psychiatrie",
+    "ward": "ward 3",
+    "bed": "bed 7",
+    "drug": "lorazepam",
+    "status": "orange",
+    "totalMl": 250,
+    "remainingMl": 200,
+    "id": "73918267"
+  },
+  {
+    "department": "Geriatrie",
+    "ward": "ward 2",
+    "bed": "bed 8",
+    "drug": "dexmedetomidine",
+    "status": "green",
+    "totalMl": 600,
+    "remainingMl": 590,
+    "id": "28476395"
+  },
+  {
+    "department": "Kardiochirurgie",
+    "ward": "ward 5",
+    "bed": "bed 2",
+    "drug": "naloxone",
+    "status": "green",
+    "totalMl": 150,
+    "remainingMl": 130,
+    "id": "19273867"
+  },
+  {
+    "department": "Oncologie",
+    "ward": "ward 4",
+    "bed": "bed 3",
+    "drug": "pentobarbital",
+    "status": "green",
+    "totalMl": 400,
+    "remainingMl": 350,
+    "id": "92837468"
+  },
+  {
+    "department": "Chirurgie",
+    "ward": "ward 3",
+    "bed": "bed 9",
+    "drug": "hydromorphone",
+    "status": "orange",
+    "totalMl": 300,
+    "remainingMl": 100,
+    "id": "62834718"
+  },
+  {
+    "department": "Verloskunde",
+    "ward": "ward 2",
+    "bed": "bed 1",
+    "drug": "remifentanil",
+    "status": "green",
+    "totalMl": 400,
+    "remainingMl": 380,
+    "id": "10394829"
+  },
+  {
+    "department": "Psychiatrie",
+    "ward": "ward 4",
+    "bed": "bed 2",
+    "drug": "fentanyl",
+    "status": "red",
+    "totalMl": 350,
+    "remainingMl": 80,
+    "id": "37281693"
+  },
+  {
+    "department": "Kardiochirurgie",
+    "ward": "ward 6",
+    "bed": "bed 3",
+    "drug": "ketamine",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 490,
+    "id": "15837466"
+  },
+  {
+    "department": "Geriatrie",
+    "ward": "ward 1",
+    "bed": "bed 7",
+    "drug": "propofol",
+    "status": "green",
+    "totalMl": 400,
+    "remainingMl": 360,
+    "id": "48392019"
+  },
+  {
+    "department": "Oncologie",
+    "ward": "ward 5",
+    "bed": "bed 6",
+    "drug": "midazolam",
+    "status": "orange",
+    "totalMl": 250,
+    "remainingMl": 150,
+    "id": "56483905"
+  },
+  {
+    "department": "Spoedeisende Hulp",
+    "ward": "ward 3",
+    "bed": "bed 9",
+    "drug": "lorazepam",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 450,
+    "id": "73918268"
+  },
+  {
+    "department": "Pediatrie",
+    "ward": "ward 6",
+    "bed": "bed 4",
+    "drug": "dexmedetomidine",
+    "status": "red",
+    "totalMl": 200,
+    "remainingMl": 50,
+    "id": "28476396"
+  },
+  {
+    "department": "Psychiatrie",
+    "ward": "ward 5",
+    "bed": "bed 1",
+    "drug": "naloxone",
+    "status": "orange",
+    "totalMl": 150,
+    "remainingMl": 90,
+    "id": "19273868"
+  },
+  {
+    "department": "Geriatrie",
+    "ward": "ward 2",
+    "bed": "bed 9",
+    "drug": "pentobarbital",
+    "status": "green",
+    "totalMl": 400,
+    "remainingMl": 380,
+    "id": "92837469"
+  },
+  {
+    "department": "Verloskunde",
+    "ward": "ward 5",
+    "bed": "bed 8",
+    "drug": "hydromorphone",
+    "status": "orange",
+    "totalMl": 600,
+    "remainingMl": 500,
+    "id": "62834719"
+  },
+  {
+    "department": "Chirurgie",
+    "ward": "ward 4",
+    "bed": "bed 2",
+    "drug": "remifentanil",
+    "status": "green",
+    "totalMl": 250,
+    "remainingMl": 230,
+    "id": "10394830"
   }
 ]

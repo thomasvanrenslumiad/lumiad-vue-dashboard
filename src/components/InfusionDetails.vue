@@ -1,5 +1,5 @@
 <script>
-import dummy from '@/assets/dummyInfusions.json'
+import dummy from '@/assets/generated_data_unique.json'
 export default {
   name: 'InfusionsButtons',
   props: ['infusionId'],
