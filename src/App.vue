@@ -1,7 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import AllInfusions from '@/assets/generated_data_unique.json'
-import InfusionButtons from '@/components/InfusionButtons.vue'
 
 import { Icon } from '@iconify/vue'
 import { provide, watch } from 'vue'
@@ -18,6 +17,7 @@ import {
   SelectValue,
   SelectViewport,
 } from 'radix-vue'
+import InfusionButtons from '@/components/InfusionButtons.vue'
 
 let currentInfusions = AllInfusions
 
@@ -117,13 +117,16 @@ watch(afdeling, (newAfdeling) => {
         </thead>
       </table>
       <div class="fixed 4xl:top-40 md:top-32 h-[72vh] w-[20vw] overflow-auto">
-        <div v-for="infusion in currentInfusions" :key="infusion.id  + Math.random()">
+        <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
             :id="infusion.id"
             :status="infusion.status"
             :ward="infusion.ward"
             :bed="infusion.bed"
             :drug="infusion.drug"
+            :totalMl="infusion.totalMl"
+            :remainingMl="infusion.remainingMl"
+            :mlPerHour="infusion.mlPerHour"
           />
         </div>
       </div>
