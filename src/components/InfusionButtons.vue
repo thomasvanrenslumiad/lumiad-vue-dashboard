@@ -40,7 +40,9 @@ const backgroundClass = computed(() => {
       <div :class="backgroundClass">{{ remainingPercentage }}%</div>
       <div class="4xl:w-[5.25VW] w-[5VW] truncate pl-2 text-ellipsis">{{ props.ward }}</div>
       <div class="4xl:w-[5.25VW] w-[5VW] truncate pl-2 text-ellipsis">{{ props.bed }}</div>
-      <div class=" 4xl:w-[3.5VW] w-[3VW] rounded-2xl bg-red-500 truncate pl-2  absolute right-3 text-white">
+      <div
+        class="4xl:w-[3.5VW] w-[3VW] rounded-2xl bg-red-500 truncate pl-2 absolute right-3 text-white"
+      >
         {{ props.drug }}
       </div>
     </button>
