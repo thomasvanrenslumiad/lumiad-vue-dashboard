@@ -1,0 +1,212 @@
+[
+  {
+    "department": "ICU",
+    "ward": "ward 2",
+    "bed": "bed 3",
+    "drug": "morphine",
+    "status": "orange",
+    "totalMl": 250,
+    "remainingMl": 100,
+    "id": "26458751"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 1",
+    "bed": "bed 5",
+    "drug": "fentanyl",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 450,
+    "id": "37281690"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 3",
+    "bed": "bed 2",
+    "drug": "ketamine",
+    "status": "red",
+    "totalMl": 200,
+    "remainingMl": 50,
+    "id": "15837462"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 4",
+    "bed": "bed 7",
+    "drug": "propofol",
+    "status": "green",
+    "totalMl": 400,
+    "remainingMl": 375,
+    "id": "48392015"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 2",
+    "bed": "bed 4",
+    "drug": "midazolam",
+    "status": "orange",
+    "totalMl": 300,
+    "remainingMl": 150,
+    "id": "56483901"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 1",
+    "bed": "bed 2",
+    "drug": "lorazepam",
+    "status": "red",
+    "totalMl": 180,
+    "remainingMl": 40,
+    "id": "73918264"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 5",
+    "bed": "bed 3",
+    "drug": "dexmedetomidine",
+    "status": "green",
+    "totalMl": 600,
+    "remainingMl": 550,
+    "id": "28476392"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 3",
+    "bed": "bed 1",
+    "drug": "naloxone",
+    "status": "orange",
+    "totalMl": 100,
+    "remainingMl": 20,
+    "id": "19273864"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 4",
+    "bed": "bed 6",
+    "drug": "pentobarbital",
+    "status": "red",
+    "totalMl": 150,
+    "remainingMl": 30,
+    "id": "92837465"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 1",
+    "bed": "bed 8",
+    "drug": "hydromorphone",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 450,
+    "id": "62834715"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 2",
+    "bed": "bed 9",
+    "drug": "remifentanil",
+    "status": "orange",
+    "totalMl": 250,
+    "remainingMl": 100,
+    "id": "10394826"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 1",
+    "bed": "bed 5",
+    "drug": "fentanyl",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 450,
+    "id": "37281690"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 3",
+    "bed": "bed 2",
+    "drug": "ketamine",
+    "status": "red",
+    "totalMl": 200,
+    "remainingMl": 50,
+    "id": "15837462"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 4",
+    "bed": "bed 7",
+    "drug": "propofol",
+    "status": "green",
+    "totalMl": 400,
+    "remainingMl": 375,
+    "id": "48392015"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 2",
+    "bed": "bed 4",
+    "drug": "midazolam",
+    "status": "orange",
+    "totalMl": 300,
+    "remainingMl": 150,
+    "id": "56483901"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 1",
+    "bed": "bed 2",
+    "drug": "lorazepam",
+    "status": "red",
+    "totalMl": 180,
+    "remainingMl": 40,
+    "id": "73918264"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 5",
+    "bed": "bed 3",
+    "drug": "dexmedetomidine",
+    "status": "green",
+    "totalMl": 600,
+    "remainingMl": 550,
+    "id": "28476392"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 3",
+    "bed": "bed 1",
+    "drug": "naloxone",
+    "status": "orange",
+    "totalMl": 100,
+    "remainingMl": 20,
+    "id": "19273864"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 4",
+    "bed": "bed 6",
+    "drug": "pentobarbital",
+    "status": "red",
+    "totalMl": 150,
+    "remainingMl": 30,
+    "id": "92837465"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 1",
+    "bed": "bed 8",
+    "drug": "hydromorphone",
+    "status": "green",
+    "totalMl": 500,
+    "remainingMl": 450,
+    "id": "62834715"
+  },
+  {
+    "department": "ICU",
+    "ward": "ward 2",
+    "bed": "bed 9",
+    "drug": "remifentanil",
+    "status": "orange",
+    "totalMl": 250,
+    "remainingMl": 100,
+    "id": "10394826"
+  }
+]
