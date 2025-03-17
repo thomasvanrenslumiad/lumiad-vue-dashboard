@@ -7,6 +7,9 @@ export default {
     ward: String,
     bed: String,
     drug: String,
+    totalMl: Number,
+    remainingMl: Number,
+    mlPerHour: Number,
   },
   methods: {
     routeIt(infusionID) {
@@ -31,6 +34,9 @@ export default {
       <div class="w-4/5 truncate pl-2 text-ellipsis">{{ ward }} {{ bed }}</div>
       <div class="rounded-2xl bg-red-500 truncate pl-2 w-[4vw] absolute right-3">
         {{ drug }}
+      </div>
+      <div>
+        {{ remainingPercentage }}
       </div>
     </button>
   </div>

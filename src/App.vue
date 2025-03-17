@@ -18,6 +18,7 @@ import {
   SelectValue,
   SelectViewport,
 } from 'radix-vue'
+import InfusionButtonsCompotition from '@/components/InfusionButtonsCompotition.vue'
 
 let currentInfusions = AllInfusions
 
@@ -117,13 +118,28 @@ watch(afdeling, (newAfdeling) => {
         </thead>
       </table>
       <div class="fixed 4xl:top-40 md:top-32 h-[72vh] w-[20vw] overflow-auto">
-        <div v-for="infusion in currentInfusions" :key="infusion.id  + Math.random()">
-          <InfusionButtons
+        <!--        <div v-for="infusion in currentInfusions" :key="infusion.id  + Math.random()">-->
+        <!--          <InfusionButtons-->
+        <!--            :id="infusion.id"-->
+        <!--            :status="infusion.status"-->
+        <!--            :ward="infusion.ward"-->
+        <!--            :bed="infusion.bed"-->
+        <!--            :drug="infusion.drug"-->
+        <!--            :totalMl="infusion.totalMl"-->
+        <!--            :remainingMl="infusion.remainingMl"-->
+        <!--            :mlPerHour="infusion.mlPerHour"-->
+        <!--          />-->
+        <!--        </div>-->
+        <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
+          <InfusionButtonsCompotition
             :id="infusion.id"
             :status="infusion.status"
             :ward="infusion.ward"
             :bed="infusion.bed"
             :drug="infusion.drug"
+            :totalMl="infusion.totalMl"
+            :remainingMl="infusion.remainingMl"
+            :mlPerHour="infusion.mlPerHour"
           />
         </div>
       </div>
