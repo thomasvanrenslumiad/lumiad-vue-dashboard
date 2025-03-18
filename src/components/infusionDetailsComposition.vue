@@ -50,8 +50,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-5">
-    <div class="col-span-4 grid grid-cols-3 gap-2" v-if="infusion">
+  <div class="grid 4XL:grid-cols-5 xl:grid-cols-4">
+    <div class="4xl:col-span-4 xl:col-span-3 grid grid-cols-3 gap-2" v-if="infusion">
       <div class="text-center grid grid-cols-2">
         <div class="bg-blue-200 rounded-full">ward</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.ward }}</div>
@@ -80,7 +80,7 @@ onMounted(() => {
     <div class="" v-if="percentage">
       <ProgressRoot
         v-model="percentage"
-        class="bg-gray-500 relative overflow-hidden bg-blackA9 rounded-full w-full h-4 sm:h-[5vh]"
+        class="bg-gray-500 relative overflow-hidden bg-blackA9 rounded-full w-full h-4 sm:h-[4vh] 4xl:h-[5vh]"
         style="transform: translateZ(0)"
       >
         <ProgressIndicator

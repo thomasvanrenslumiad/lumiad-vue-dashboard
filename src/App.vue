@@ -116,7 +116,7 @@ watch(afdeling, (newAfdeling) => {
           </tr>
         </thead>
       </table>
-      <div class="fixed 4xl:top-40 md:top-32 h-[72vh] w-[20vw] overflow-auto">
+      <div class="fixed 4xl:top-40 md:top-32 4XL:h-[72vh] xl:h-[70vh] w-[20vw] overflow-auto">
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
             :id="infusion.id"
@@ -132,11 +132,13 @@ watch(afdeling, (newAfdeling) => {
       </div>
     </aside>
   </section>
-  <section class="md:flex bg-gray-100 overflow-hidden">
-    <div class="mr-5 mb-3 ml-5 h-[10vh] md:w-[90vw] flex-initial rounded-[3vw] bg-gray-200">
+  <section class="md:flex overflow-hidden">
+    <div
+      class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[90vw] xl:w-[87vw] flex-initial rounded-[3vw] bg-gray-200"
+    >
       <div
         id="infuusDetails"
-        class="m-5 h-[10vh] md:w-[88vw] flex-initial overflow-hidden rounded-[2vw] bg-gray-200 p-5 font-[Open_Sans] text-2xl text-ellipsis md:overflow-auto [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
+        class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[88vw] xl:w-[86vw] flex-initial overflow-hidden rounded-[2vw] bg-gray-200 p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
       >
         <RouterView />
       </div>
