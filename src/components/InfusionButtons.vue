@@ -11,7 +11,7 @@ const props = defineProps({
   remainingMl: Number,
   mlPerHour: Number,
 })
-const remainingPercentage = computed(() => (props.remainingMl / (props.totalMl / 100)).toFixed(2))
+const remainingPercentage = computed(() => (props.remainingMl / (props.totalMl / 100)).toFixed(1))
 const route = useRouter()
 function routeIt(infusionID) {
   route.push({ name: 'Infusion-details', params: { infusionId: infusionID } })
@@ -20,13 +20,13 @@ function routeIt(infusionID) {
 const backgroundClass = computed(() => {
   switch (true) {
     case remainingPercentage.value > 80:
-      return 'mr-2 4xl:w-[2.5VW] w-[2VW] ml-1 bg-green-500 rounded-2xl pr-2 pl-2 text-center text-white' // Green for status > 80
+      return 'mr-2 4xl:w-[2.5VW] w-[3VW] ml-1 bg-green-500 rounded-2xl pr-2 pl-2 text-center text-white' // Green for status > 80
     case remainingPercentage.value > 40:
-      return 'mr-2 4xl:w-[2.5VW] w-[2VW] ml-1 bg-yellow-500 rounded-2xl pr-2 pl-2 text-center text-white' // Yellow for status > 40
+      return 'mr-2 4xl:w-[2.5VW] w-[3VW] ml-1 bg-yellow-500 rounded-2xl pr-2 pl-2 text-center text-white' // Yellow for status > 40
     case remainingPercentage.value > 20:
-      return 'mr-2 4xl:w-[2.5VW] w-[2VW] ml-1 bg-orange-500 rounded-2xl pr-2 pl-2 text-center text-white' // Orange for status > 20
+      return 'mr-2 4xl:w-[2.5VW] w-[3VW] ml-1 bg-orange-500 rounded-2xl pr-2 pl-2 text-center text-white' // Orange for status > 20
     default:
-      return 'mr-2 4xl:w-[2.5VW] w-[2VW] ml-1 bg-red-500 rounded-2xl pr-2 pl-2 text-center text-white' // Red for status <= 20
+      return 'mr-2 4xl:w-[2.5VW] w-[3VW] ml-1 bg-red-500 rounded-2xl pr-2 pl-2 text-center text-white' // Red for status <= 20
   }
 })
 </script>
