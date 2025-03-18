@@ -77,7 +77,7 @@ onMounted(() => {
         <div class="bg-gray-300 rounded-full">{{ infusion.remainingMl }}</div>
       </div>
     </div>
-    <div class="" v-if="percentage">
+    <div class="pt-4 pl-2" v-if="percentage">
       <ProgressRoot
         v-model="percentage"
         class="bg-gray-500 relative overflow-hidden bg-blackA9 rounded-full w-full h-4 sm:h-[4vh] 4xl:h-[5vh]"
