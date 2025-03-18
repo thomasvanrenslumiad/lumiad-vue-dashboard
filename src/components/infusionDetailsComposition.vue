@@ -50,30 +50,30 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid 4XL:grid-cols-5 xl:grid-cols-4">
-    <div class="4xl:col-span-4 xl:col-span-3 grid grid-cols-3 gap-2" v-if="infusion">
+  <div class="grid 4XL:grid-cols-5 xl:grid-cols-4 grid-cols-1">
+    <div class="4xl:col-span-4 xl:col-span-3 grid md:grid-cols-3 grid-cols-1 gap-2" v-if="infusion">
       <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-200 rounded-full">ward</div>
+        <div class="bg-blue-500 text-white rounded-full">ward</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.ward }}</div>
       </div>
       <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-200 rounded-full">Infusion Id:</div>
+        <div class="bg-blue-500 text-white rounded-full">Infusion Id:</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.id }}</div>
       </div>
       <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-200 rounded-full">totalMl:</div>
+        <div class="bg-blue-500 text-white rounded-full">totalMl:</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.totalMl }}</div>
       </div>
       <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-200 rounded-full">bed:</div>
+        <div class="bg-blue-500 text-white rounded-full">bed:</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.bed }}</div>
       </div>
       <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-200 rounded-full">drug:</div>
+        <div class="bg-blue-500 text-white rounded-full">drug:</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.drug }}</div>
       </div>
       <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-200 rounded-full">remainingMl:</div>
+        <div class="bg-blue-500 text-white rounded-full">remainingMl:</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.remainingMl }}</div>
       </div>
     </div>
