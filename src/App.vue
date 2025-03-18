@@ -53,11 +53,15 @@ watch(afdeling, (newAfdeling) => {
 
 <template>
   <header class="flex h-[8vh] bg-blue-500 p-6 overflow-hidden">
-    <img src="./assets/LumiadLogo.svg" alt="logo" class="mr-[30vw] h-[2vw]" />
-    <img src="./assets/dashboardnaam.svg" alt="logo" class="relative mr-[28vw] h-[3vw]" />
+    <img src="./assets/LumiadLogo.svg" alt="logo" class="md:mr-[30vw] md:h-[2vw]" />
+    <img
+      src="./assets/dashboardnaam.svg"
+      alt="logo"
+      class="relative md:mr-[24vw] mr-[4vw] md:visible invisible h-[3vw]"
+    />
     <SelectRoot v-model="afdeling">
       <SelectTrigger
-        class="inline-flex min-w-[10vw] min-h-[5vh] items-center justify-between rounded px-[15px] text-[13px] leading-none h-[35px] gap-[5px] bg-white text-grass11 shadow-[0_2px_10px] shadow-black/10 hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-green9 outline-none"
+        class="flex min-w-[15vw] 2xl:w-[20vw] w-[50vw] min-h-[5vh] items-center justify-between rounded px-[15px] text-[13px] leading-none h-[35px] gap-[5px] bg-white text-grass11 shadow-[0_2px_10px] shadow-black/10 hover:bg-gray-200 focus:shadow-black outline-none truncate text-ellipsis"
         aria-label="Customise options"
       >
         <SelectValue placeholder="Afdeling" />
@@ -66,7 +70,7 @@ watch(afdeling, (newAfdeling) => {
 
       <SelectPortal>
         <SelectContent
-          class="min-w-[10vw] min-h-[5vh] bg-white rounded shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-[100]"
+          class="min-w-[10vw] min-h-[25vh] md:h-[28vh] h-[40vh] bg-white rounded will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
           :side-offset="5"
         >
           <SelectScrollUpButton
@@ -106,8 +110,8 @@ watch(afdeling, (newAfdeling) => {
     <div class="m-3 md:w-4/5 flex-initial bg-gray-200 p-2">
       <h1>{{ afdeling }}</h1>
     </div>
-    <aside class="md:w-[21vw] m-3 flex-initial bg-gray-200 p-2 overflow-x-hidden">
-      <table class="table-fixed">
+    <div class="md:w-[21vw] m-3 flex-initial bg-gray-200 p-2 overflow-x-hidden">
+      <table class="table-fixed invisible md:visible ;">
         <thead class="fixed pb-5">
           <tr>
             <th class="mr-2 ml-2 pr-1 pl-2">Status</th>
@@ -116,7 +120,9 @@ watch(afdeling, (newAfdeling) => {
           </tr>
         </thead>
       </table>
-      <div class="fixed 4xl:top-40 md:top-32 4XL:h-[72vh] xl:h-[70vh] w-[20vw] overflow-auto">
+      <div
+        class="md:fixed 4xl:top-40 md:top-32 4XL:h-[72vh] xl:h-[70vh] h-[40vh] md:w-[20vw] overflow-auto"
+      >
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
             :id="infusion.id"
@@ -130,7 +136,7 @@ watch(afdeling, (newAfdeling) => {
           />
         </div>
       </div>
-    </aside>
+    </div>
   </section>
   <section class="md:flex overflow-hidden">
     <div
@@ -143,10 +149,12 @@ watch(afdeling, (newAfdeling) => {
         <RouterView />
       </div>
     </div>
-    <div class="mr-5 mb-3 h-[11vh] md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200">
+    <div
+      class="mr-5 mb-3 md:h-[11vh] h-0 md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200 md:visible invisible"
+    >
       <button
         type="button"
-        class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] bg-sky-300 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"
+        class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] text-white bg-blue-500 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"
       >
         Report
       </button>
