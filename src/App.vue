@@ -106,7 +106,7 @@ watch(afdeling, (newAfdeling) => {
       </SelectPortal>
     </SelectRoot>
   </header>
-  <section class="md:flex xl:h-[78vh] overflow-hidden">
+  <section class="md:flex md:h-[78vh] overflow-hidden">
     <div class="m-3 md:w-4/5 flex-initial bg-gray-200 p-2">
       <h1>{{ afdeling }}</h1>
     </div>
@@ -121,7 +121,7 @@ watch(afdeling, (newAfdeling) => {
         </thead>
       </table>
       <div
-        class="md:fixed 4xl:top-40 md:top-32 4XL:h-[72vh] xl:h-[70vh] h-[40vh] md:w-[20vw] overflow-auto"
+        class="md:fixed 4xl:top-40 md:top-32 4XL:h-[72vh] md:h-[70vh] h-[40vh] md:w-[20vw] overflow-auto"
       >
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
