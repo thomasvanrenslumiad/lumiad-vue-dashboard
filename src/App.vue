@@ -61,7 +61,7 @@ watch(afdeling, (newAfdeling) => {
     />
     <SelectRoot v-model="afdeling">
       <SelectTrigger
-        class="md:flex absolute top-3 left-25 min-w-[15vw] 2xl:w-[20vw] w-[50vw] min-h-[5vh] items-center justify-between rounded px-[15px] text-[13px] leading-none h-[35px] gap-[5px] bg-white text-grass11 shadow-[0_2px_10px] shadow-black/10 hover:bg-gray-200 focus:shadow-black outline-none truncate text-ellipsis"
+        class="md:flex md:static absolute top-3 left-25 min-w-[15vw] 2xl:w-[20vw] w-[50vw] min-h-[5vh] items-center justify-between rounded px-[15px] text-[13px] leading-none h-[35px] gap-[5px] bg-white text-grass11 shadow-[0_2px_10px] shadow-black/10 hover:bg-gray-200 focus:shadow-black outline-none truncate text-ellipsis"
         aria-label="Customise options"
       >
         <SelectValue placeholder="Kies uw afdeling" />
