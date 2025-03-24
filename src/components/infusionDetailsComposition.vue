@@ -51,7 +51,7 @@ onMounted(() => {
 
 <template>
   <div class="grid 4XL:grid-cols-5 xl:grid-cols-4 grid-cols-1">
-    <div class="4xl:col-span-4 xl:col-span-3 grid md:grid-cols-3 grid-cols-1 gap-2" v-if="infusion">
+    <div class="xl:col-span-3 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2" v-if="infusion">
       <div class="text-center grid grid-cols-2">
         <div class="bg-blue-500 text-white rounded-full">ward</div>
         <div class="bg-gray-300 rounded-full">{{ infusion.ward }}</div>

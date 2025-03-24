@@ -106,22 +106,22 @@ watch(afdeling, (newAfdeling) => {
       </SelectPortal>
     </SelectRoot>
   </header>
-  <section class="md:flex xl:h-[78vh] overflow-hidden">
-    <div class="m-3 md:w-4/5 flex-initial bg-gray-200 p-2">
+  <section class="md:flex xl:h-[78vh] md:h-[70vh] overflow-hidden">
+    <div class="m-3 xl:h-[76vh] md:h-[68vh] h-[0vh] xl:w-4/5 md:w-3/5 flex-initial md:rounded-[1vw] bg-gray-200 p-2 md:visible invisible">
       <h1>{{ afdeling }}</h1>
     </div>
-    <div class="md:w-[21vw] m-3 flex-initial bg-gray-200 p-2 overflow-x-hidden">
-      <table class="table-fixed invisible md:visible ;">
-        <thead class="fixed pb-5">
-          <tr>
-            <th class="mr-2 ml-2 pr-1 pl-2">Status</th>
-            <th class="w-4/5 pl-2">Location</th>
-            <th class="mr-10 ml-2 pr-6 pl-2">Drug</th>
-          </tr>
-        </thead>
-      </table>
+    <div class="xl:w-[21vw] md:w-[40vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw]  rounded-[3vw] p-2 overflow-x-hidden">
+      <!--      <table class="table-fixed invisible xl:visible ;">-->
+      <!--        <thead class="fixed pb-5">-->
+      <!--          <tr>-->
+      <!--            <th class="mr-2 ml-2 pr-1 pl-2">Status</th>-->
+      <!--            <th class="w-4/5 pl-2">Location</th>-->
+      <!--            <th class="mr-10 ml-2 pr-6 pl-2">Drug</th>-->
+      <!--          </tr>-->
+      <!--        </thead>-->
+      <!--      </table>-->
       <div
-        class="md:fixed 4xl:top-40 md:top-32 4XL:h-[72vh] xl:h-[70vh] h-[40vh] md:w-[20vw] overflow-auto"
+        class=" xl:m-3 md:m-1 m-2 md:h-[74vh] h-[40vh]  xl:w-[20vw] md:w-[39vw] overflow-auto"
       >
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
@@ -138,27 +138,27 @@ watch(afdeling, (newAfdeling) => {
       </div>
     </div>
   </section>
-  <section class="md:flex overflow-hidden">
+  <section class="xl:flex overflow-hidden">
     <div
-      class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[90vw] xl:w-[87vw] flex-initial rounded-[3vw] bg-gray-200"
+      class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200"
     >
       <div
         id="infuusDetails"
-        class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[88vw] xl:w-[86vw] flex-initial overflow-hidden rounded-[2vw] bg-gray-200 p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
+        class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[98vw] xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] bg-gray-200 p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
       >
         <RouterView />
       </div>
     </div>
-    <div
-      class="mr-5 mb-3 md:h-[11vh] h-0 md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200 md:visible invisible"
-    >
-      <button
-        type="button"
-        class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] text-white bg-blue-500 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"
-      >
-        Report
-      </button>
-    </div>
+    <!--    <div-->
+    <!--      class="mr-5 mb-3 md:h-[11vh] h-0 md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200 md:visible invisible"-->
+    <!--    >-->
+    <!--      <button-->
+    <!--        type="button"-->
+    <!--        class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] text-white bg-blue-500 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"-->
+    <!--      >-->
+    <!--        Report-->
+    <!--      </button>-->
+    <!--    </div>-->
   </section>
 </template>
 
