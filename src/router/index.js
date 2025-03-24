@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import InfusionDetails from '@/components/InfusionDetails.vue'
 import InfusionDetailsComposition from '@/components/infusionDetailsComposition.vue'
 
 const router = createRouter({
