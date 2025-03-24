@@ -53,7 +53,11 @@ watch(afdeling, (newAfdeling) => {
 
 <template>
   <header class="md:flex h-[8vh] bg-blue-500 p-6 md:overflow-hidden">
-    <img src="./assets/LumiadLogo.svg" alt="logo" class="md:mr-[30vw] md:h-[2vw] md:visible invisible" />
+    <img
+      src="./assets/LumiadLogo.svg"
+      alt="logo"
+      class="md:mr-[30vw] md:h-[2vw] md:visible invisible"
+    />
     <img
       src="./assets/dashboardnaam.svg"
       alt="logo"
@@ -106,7 +110,7 @@ watch(afdeling, (newAfdeling) => {
       </SelectPortal>
     </SelectRoot>
   </header>
-  <section  class="md:flex xl:h-[78vh] md:h-[70vh] overflow-hidden">
+  <section class="md:flex xl:h-[78vh] md:h-[70vh] overflow-hidden">
     <div
       class="m-3 xl:h-[76vh] md:h-[68vh] h-[0vh] xl:w-[70vw] md:w-3/5 flex-initial md:rounded-[1vw] bg-gray-200 p-2 md:visible invisible"
     >
@@ -125,7 +129,7 @@ watch(afdeling, (newAfdeling) => {
       <!--        </thead>-->
       <!--      </table>-->
       <div class="4xl:m-3 md:m-1 m-2 md:h-[74vh] h-[40vh] xl:w-[28vw] md:w-[39vw] overflow-auto">
-        <div  v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
+        <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
             :id="infusion.id"
             :status="infusion.status"
