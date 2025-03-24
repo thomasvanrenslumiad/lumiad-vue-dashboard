@@ -57,8 +57,8 @@ onMounted(() => {
         <div class="bg-gray-300 rounded-full">{{ infusion.ward }}</div>
       </div>
       <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-500 text-white rounded-full">Infusion Id:</div>
-        <div class="bg-gray-300 rounded-full">{{ infusion.id }}</div>
+        <div class="bg-blue-500 text-white rounded-full">ml/hour:</div>
+        <div class="bg-gray-300 rounded-full">{{ infusion.mlPerHour }}</div>
       </div>
       <div class="text-center grid grid-cols-2">
         <div class="bg-blue-500 text-white rounded-full">totalMl:</div>
