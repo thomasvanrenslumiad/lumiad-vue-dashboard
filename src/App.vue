@@ -107,10 +107,14 @@ watch(afdeling, (newAfdeling) => {
     </SelectRoot>
   </header>
   <section class="md:flex xl:h-[78vh] md:h-[70vh] overflow-hidden">
-    <div class="m-3 xl:h-[76vh] md:h-[68vh] h-[0vh] xl:w-4/5 md:w-3/5 flex-initial md:rounded-[1vw] bg-gray-200 p-2 md:visible invisible">
+    <div
+      class="m-3 xl:h-[76vh] md:h-[68vh] h-[0vh] xl:w-4/5 md:w-3/5 flex-initial md:rounded-[1vw] bg-gray-200 p-2 md:visible invisible"
+    >
       <h1>{{ afdeling }}</h1>
     </div>
-    <div class="xl:w-[21vw] md:w-[40vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw]  rounded-[3vw] p-2 overflow-x-hidden">
+    <div
+      class="xl:w-[21vw] md:w-[40vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
+    >
       <!--      <table class="table-fixed invisible xl:visible ;">-->
       <!--        <thead class="fixed pb-5">-->
       <!--          <tr>-->
@@ -120,9 +124,7 @@ watch(afdeling, (newAfdeling) => {
       <!--          </tr>-->
       <!--        </thead>-->
       <!--      </table>-->
-      <div
-        class=" xl:m-3 md:m-1 m-2 md:h-[74vh] h-[40vh]  xl:w-[20vw] md:w-[39vw] overflow-auto"
-      >
+      <div class="xl:m-3 md:m-1 m-2 md:h-[74vh] h-[40vh] xl:w-[20vw] md:w-[39vw] overflow-auto">
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
             :id="infusion.id"
