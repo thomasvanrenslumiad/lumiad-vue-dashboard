@@ -33,7 +33,7 @@ const backgroundClass = computed(() => {
 
 <template>
   <div>
-    <button
+    <button ontouchstart=""
       @click="routeIt(props.id)"
       class="m-2 flex 4xl:w-[19VW] xl:w-[18.5VW] md:w-[34vw] w-[80vw] cursor-pointer rounded-full bg-gray-400 hover:bg-gray-500 hover:text-white focus:bg-gray-600 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black active:bg-gray-700 active:text-white ove"
     >
