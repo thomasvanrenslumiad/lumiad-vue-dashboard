@@ -17,6 +17,29 @@ function routeIt(infusionID) {
   route.push({ name: 'Infusion-details', params: { infusionId: infusionID } })
 }
 
+function remainingTime() {
+  return ((props.remainingMl / props.mlPerHour) *60)
+}
+
+const remainingHours = computed(() => {
+  if (props.mlPerHour === 0) {
+    return "Infusion not running"
+  }
+  return (remainingTime() / 60 ).toFixed(0)
+})
+const remainingMinutes = computed(() => {
+  switch (true) {
+    case props.mlPerHour === 0:
+      return " "
+    case ((remainingTime()  % 60)  === 0):
+      return "00"
+    case ((remainingTime()  % 60)  < 10):
+      return "0" + ((remainingTime()  % 60) ).toFixed(0)
+    default:
+      return ((remainingTime()  % 60) ).toFixed(0)
+  }
+})
+
 const backgroundClass = computed(() => {
   switch (true) {
     case remainingPercentage.value > 80:
@@ -29,23 +52,33 @@ const backgroundClass = computed(() => {
       return 'mr-2 4xl:w-[2.5VW] md:w-[7VW] w-[17vw] ml-1 bg-red-500 rounded-2xl pr-2 pl-2 text-center text-white' // Red for status <= 20
   }
 })
+
+const notifier = computed(() => {
+  if (props.mlPerHour === 0) {
+    return "m-2 flex 4xl:w-[27VW] xl:w-[25.5VW] md:w-[34vw] w-[80vw] cursor-pointer rounded-full bg-yellow-200 hover:bg-yellow-500 hover:text-white focus:bg-yellow-700 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-red-500 active:bg-gray-700 active:text-white outline-orange-500 outline-3  "
+  }
+  else {
+    return "m-2 flex 4xl:w-[27VW] xl:w-[25.5VW] md:w-[34vw] w-[80vw] cursor-pointer rounded-full bg-gray-400 hover:bg-gray-500 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black active:bg-gray-700 active:text-white "
+  }
+})
 </script>
 
 <template>
   <div>
     <button ontouchstart=""
       @click="routeIt(props.id)"
-      class="m-2 flex 4xl:w-[19VW] xl:w-[18.5VW] md:w-[34vw] w-[80vw] cursor-pointer rounded-full bg-gray-400 hover:bg-gray-500 hover:text-white focus:bg-gray-600 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black active:bg-gray-700 active:text-white ove"
+      :class="notifier"
     >
       <div :class="backgroundClass">{{ remainingPercentage }}%</div>
-      <div class="4xl:w-[5.25VW] md:w-[8VW] w-[25vw] truncate pl-2 text-ellipsis">
+      <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw]"> {{ remainingHours }}:{{remainingMinutes}}</div>
+      <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw] truncate pl-2 text-ellipsis">
         {{ props.ward }}
       </div>
-      <div class="4xl:w-[5.25VW] md:w-[8VW] w-[25vw] truncate pl-2 text-ellipsis">
+      <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw] truncate pl-2  text-ellipsis ">
         {{ props.bed }}
       </div>
       <div
-        class="4xl:w-[3.5VW] xl:w-[3VW] md:w-[10VW] w-[20vw] rounded-2xl bg-red-500 truncate pl-2 right-3 text-ellipsis text-white"
+        class="  4xl:w-[3.5VW] xl:w-[3VW] md:w-[10VW] w-[20vw] rounded-2xl bg-red-500 truncate pl-2  text-ellipsis text-white"
       >
         {{ props.drug }}
       </div>
