@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import InfusionDetailsComposition from '@/components/infusionDetailsComposition.vue'
+import InfusionDetails from '@/components/infusionDetails.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/infusion/:infusionId',
       name: 'Infusion-details',
-      component: InfusionDetailsComposition,
+      component: InfusionDetails,
     },
   ],
 })
