@@ -52,7 +52,7 @@ watch(afdeling, (newAfdeling) => {
 </script>
 
 <template>
-  <header class="flex h-[8vh] bg-blue-500 p-6 overflow-hidden">
+  <header class="flex h-[8vh] bg-blue-500 p-6 md:overflow-hidden">
     <img src="./assets/LumiadLogo.svg" alt="logo" class="md:mr-[30vw] md:h-[2vw]" />
     <img
       src="./assets/dashboardnaam.svg"
@@ -61,7 +61,7 @@ watch(afdeling, (newAfdeling) => {
     />
     <SelectRoot v-model="afdeling">
       <SelectTrigger
-        class="flex min-w-[15vw] 2xl:w-[20vw] w-[50vw] min-h-[5vh] items-center justify-between rounded px-[15px] text-[13px] leading-none h-[35px] gap-[5px] bg-white text-grass11 shadow-[0_2px_10px] shadow-black/10 hover:bg-gray-200 focus:shadow-black outline-none truncate text-ellipsis"
+        class="md:flex min-w-[15vw] 2xl:w-[20vw] w-[50vw] min-h-[5vh] items-center justify-between rounded px-[15px] text-[13px] leading-none h-[35px] gap-[5px] bg-white text-grass11 shadow-[0_2px_10px] shadow-black/10 hover:bg-gray-200 focus:shadow-black outline-none truncate text-ellipsis"
         aria-label="Customise options"
       >
         <SelectValue placeholder="Afdeling" />
