@@ -30,8 +30,8 @@ def generate_data(num_entries):
         remaining_ml = random.randint(0, total_ml)
         actRate = random.randint(0, 25)
         if actRate == 0:
-            PumpCumTime = 0
-            PumpRemTime = 0
+            PumpCumTime = "Infusion not running"
+            PumpRemTime = "Infusion not running"
         else:
             PumpCumTimeMinutesTotal = (((total_ml - remaining_ml) / actRate) * 60)
             PumpCumHours = math.trunc(PumpCumTimeMinutesTotal / 60)
@@ -95,7 +95,7 @@ generated_data = generate_data(500)
 json_data = json.dumps(generated_data, indent=2)
 
 # Print or save to a file
-with open("generated_data_unique.json", "w") as file:
+with open("generated_data_unique_with_time.json", "w") as file:
     file.write(json_data)
 
-print("500 unique entries generated and saved to 'generated_data_unique.json'.")
+print("500 unique entries generated and saved to 'generated_data_unique_with_time.json'.")

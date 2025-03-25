@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import AllInfusions from '@/assets/generated_data_unique.json'
+import AllInfusions from '@/assets/generated_data_unique_with_time.json'
 
 import { Icon } from '@iconify/vue'
 import { provide, watch, ref } from 'vue'
@@ -52,84 +52,69 @@ watch(afdeling, (newAfdeling) => {
   filterAllInfusions(newAfdeling)
 })
 
-
 function sortInfusions(newSortChoice) {
   switch (true) {
-    case newSortChoice === "remainingMl":
+    case newSortChoice === 'remainingMl':
       for (let i = 0; i < currentInfusions.length; i++) {
         for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-          const value1 = Object.
-          values(currentInfusions[j])[6];
-          const value2 = Object.
-          values(currentInfusions[j + 1])[6];
+          const value1 = Object.values(currentInfusions[j])[6]
+          const value2 = Object.values(currentInfusions[j + 1])[6]
           if (value1 > value2) {
-            const temp = currentInfusions[j];
-            currentInfusions[j] = currentInfusions[j + 1];
-            currentInfusions[j + 1] = temp;
+            const temp = currentInfusions[j]
+            currentInfusions[j] = currentInfusions[j + 1]
+            currentInfusions[j + 1] = temp
           }
         }
       }
       return
-    case newSortChoice === "time":
-      console.log("time")
+    case newSortChoice === 'time':
+      console.log('time')
       for (let i = 0; i < currentInfusions.length; i++) {
         for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-          const value1 = Object.
-          values(currentInfusions[j])[1];
-          const value2 = Object.
-          values(currentInfusions[j + 1])[1];
+          const value1 = Object.values(currentInfusions[j])[9]
+          const value2 = Object.values(currentInfusions[j + 1])[9]
           if (value1 > value2) {
-            const temp = currentInfusions[j];
-            currentInfusions[j] = currentInfusions[j + 1];
-            currentInfusions[j + 1] = temp;
+            const temp = currentInfusions[j]
+            currentInfusions[j] = currentInfusions[j + 1]
+            currentInfusions[j + 1] = temp
           }
         }
       }
       return
-    case newSortChoice === "ward":
-      console.log("ward")
-      for (let i = 0; i < currentInfusions.length; i++) {
-        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-          const value1 = Object.
-          values(currentInfusions[j])[1];
-          const value2 = Object.
-          values(currentInfusions[j + 1])[1];
-          if (value1 > value2) {
-            const temp = currentInfusions[j];
-            currentInfusions[j] = currentInfusions[j + 1];
-            currentInfusions[j + 1] = temp;
-          }
-        }
-      }
+    case newSortChoice === 'ward': {
+      console.log('ward')
+      let WardSort = currentInfusions.reduce((acc, curr) => {
+        let ind = acc.findIndex((item) => item.ward > curr.ward)
+        if (ind === -1) ind = acc.length
+        acc.splice(ind, 0, curr)
+        currentInfusions = acc
+        return acc
+      }, [])
+      currentInfusions = WardSort
       return
-    case newSortChoice === "bed":
-      console.log("bed")
-      for (let i = 0; i < currentInfusions.length; i++) {
-        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-          const value1 = Object.
-          values(currentInfusions[j])[2];
-          const value2 = Object.
-          values(currentInfusions[j + 1])[2];
-          if (value1 > value2) {
-            const temp = currentInfusions[j];
-            currentInfusions[j] = currentInfusions[j + 1];
-            currentInfusions[j + 1] = temp;
-          }
-        }
-      }
+    }
+    case newSortChoice === 'bed': {
+      console.log('bed')
+      let BedSort = currentInfusions.reduce((acc, curr) => {
+        let ind = acc.findIndex((item) => item.bed > curr.bed)
+        if (ind === -1) ind = acc.length
+        acc.splice(ind, 0, curr)
+        currentInfusions = acc
+        return acc
+      }, [])
+      currentInfusions = BedSort
       return
-    case newSortChoice === "drug":
-      console.log("drug")
+    }
+    case newSortChoice === 'drug':
+      console.log('drug')
       for (let i = 0; i < currentInfusions.length; i++) {
         for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-          const value1 = Object.
-          values(currentInfusions[j])[3];
-          const value2 = Object.
-          values(currentInfusions[j + 1])[3];
+          const value1 = Object.values(currentInfusions[j])[3]
+          const value2 = Object.values(currentInfusions[j + 1])[3]
           if (value1 > value2) {
-            const temp = currentInfusions[j];
-            currentInfusions[j] = currentInfusions[j + 1];
-            currentInfusions[j + 1] = temp;
+            const temp = currentInfusions[j]
+            currentInfusions[j] = currentInfusions[j + 1]
+            currentInfusions[j + 1] = temp
           }
         }
       }
@@ -211,7 +196,11 @@ watch(sortChoice, (newSortChoice) => {
       class="xl:w-[30vw] md:w-[40vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
     >
       <div>
-        <select id="countries" v-model="sortChoice" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <select
+          id="countries"
+          v-model="sortChoice"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
           <option selected disabled hidden>Sort by</option>
           <option value="remainingMl">Remaining IV</option>
           <option value="time">Remaining time</option>
@@ -223,14 +212,17 @@ watch(sortChoice, (newSortChoice) => {
       <div class="4xl:m-3 md:m-1 m-2 md:h-[74vh] h-[40vh] xl:w-[28vw] md:w-[39vw] overflow-auto">
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
-            :id="infusion.id"
-            :status="infusion.status"
+            :department="infusion.department"
             :ward="infusion.ward"
             :bed="infusion.bed"
             :drug="infusion.drug"
+            :status="infusion.status"
             :totalMl="infusion.totalMl"
             :remainingMl="infusion.remainingMl"
             :mlPerHour="infusion.mlPerHour"
+            :time-running="infusion.timeRunning"
+            :timeRemaining="infusion.timeRemaining"
+            :id="infusion.id"
           />
         </div>
       </div>
@@ -247,16 +239,6 @@ watch(sortChoice, (newSortChoice) => {
         <RouterView />
       </div>
     </div>
-<!--        <div-->
-<!--          class="mr-5 mb-3 md:h-[11vh] h-0 md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200 md:visible invisible"-->
-<!--        >-->
-<!--          <button-->
-<!--            type="button"-->
-<!--            class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] text-white bg-blue-500 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"-->
-<!--          >-->
-<!--            Report-->
-<!--          </button>-->
-<!--        </div>-->
   </section>
 </template>
 
