@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 import AllInfusions from '@/assets/generated_data_unique_with_time.json'
 import { Icon } from '@iconify/vue'
-import { provide, watch, ref } from 'vue'
+import { provide, ref, watch } from 'vue'
 import {
   SelectContent,
   SelectItem,
@@ -111,14 +111,13 @@ function sortInfusions(newSortChoice) {
       return
     case newSortChoice === 'ward': {
       console.log('ward')
-      let WardSort = currentInfusions.reduce((acc, curr) => {
+      currentInfusions = currentInfusions.reduce((acc, curr) => {
         let ind = acc.findIndex((item) => item.ward > curr.ward)
         if (ind === -1) ind = acc.length
         acc.splice(ind, 0, curr)
         currentInfusions = acc
         return acc
       }, [])
-      currentInfusions = WardSort
       return
     }
     case newSortChoice === 'bed': {
