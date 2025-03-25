@@ -80,13 +80,17 @@ function filterButtons(filter) {
   // currentInfusions = currentInfusions.filter((infusion) => infusion.timeRemaining === 'Infusion not running')
 }
 
+function calculatePercentage(infusion) {
+  return parseFloat(((infusion.remainingMl / infusion.totalMl) * 100).toFixed(1))
+}
+
 function sortInfusions(newSortChoice) {
   switch (true) {
     case newSortChoice === 'remainingMl':
       for (let i = 0; i < currentInfusions.length; i++) {
         for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-          const value1 = Object.values(currentInfusions[j])[6]
-          const value2 = Object.values(currentInfusions[j + 1])[6]
+          const value1 = calculatePercentage(currentInfusions[j])
+          const value2 = calculatePercentage(currentInfusions[j + 1])
           if (value1 > value2) {
             const temp = currentInfusions[j]
             currentInfusions[j] = currentInfusions[j + 1]
@@ -250,7 +254,7 @@ const toggleGroupItemClasses =
           class="w-[90vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-400 dark:border-gray-600 dark:hover:bg-gray-300 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option selected disabled>Sort by</option>
-          <option value="remainingMl">Remaining IV</option>
+          <option value="remainingMl">remaining %IV </option>
           <option value="time">Remaining time</option>
           <option value="ward">Ward</option>
           <option value="bed">bed</option>
