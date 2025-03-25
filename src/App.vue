@@ -3,7 +3,7 @@ import { RouterView } from 'vue-router'
 import AllInfusions from '@/assets/generated_data_unique.json'
 
 import { Icon } from '@iconify/vue'
-import { provide, watch } from 'vue'
+import { provide, watch, ref } from 'vue'
 import {
   SelectContent,
   SelectItem,
@@ -35,6 +35,8 @@ const options = [
 const afdeling = defineModel()
 provide('afdeling', afdeling)
 
+const sortChoice = ref(null)
+
 function filterAllInfusions(afdeling) {
   currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
 }
@@ -48,6 +50,95 @@ watch(afdeling, (newAfdeling) => {
     return
   }
   filterAllInfusions(newAfdeling)
+})
+
+
+function sortInfusions(newSortChoice) {
+  switch (true) {
+    case newSortChoice === "remainingMl":
+      for (let i = 0; i < currentInfusions.length; i++) {
+        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
+          const value1 = Object.
+          values(currentInfusions[j])[6];
+          const value2 = Object.
+          values(currentInfusions[j + 1])[6];
+          if (value1 > value2) {
+            const temp = currentInfusions[j];
+            currentInfusions[j] = currentInfusions[j + 1];
+            currentInfusions[j + 1] = temp;
+          }
+        }
+      }
+      return
+    case newSortChoice === "time":
+      console.log("time")
+      for (let i = 0; i < currentInfusions.length; i++) {
+        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
+          const value1 = Object.
+          values(currentInfusions[j])[1];
+          const value2 = Object.
+          values(currentInfusions[j + 1])[1];
+          if (value1 > value2) {
+            const temp = currentInfusions[j];
+            currentInfusions[j] = currentInfusions[j + 1];
+            currentInfusions[j + 1] = temp;
+          }
+        }
+      }
+      return
+    case newSortChoice === "ward":
+      console.log("ward")
+      for (let i = 0; i < currentInfusions.length; i++) {
+        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
+          const value1 = Object.
+          values(currentInfusions[j])[1];
+          const value2 = Object.
+          values(currentInfusions[j + 1])[1];
+          if (value1 > value2) {
+            const temp = currentInfusions[j];
+            currentInfusions[j] = currentInfusions[j + 1];
+            currentInfusions[j + 1] = temp;
+          }
+        }
+      }
+      return
+    case newSortChoice === "bed":
+      console.log("bed")
+      for (let i = 0; i < currentInfusions.length; i++) {
+        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
+          const value1 = Object.
+          values(currentInfusions[j])[2];
+          const value2 = Object.
+          values(currentInfusions[j + 1])[2];
+          if (value1 > value2) {
+            const temp = currentInfusions[j];
+            currentInfusions[j] = currentInfusions[j + 1];
+            currentInfusions[j + 1] = temp;
+          }
+        }
+      }
+      return
+    case newSortChoice === "drug":
+      console.log("drug")
+      for (let i = 0; i < currentInfusions.length; i++) {
+        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
+          const value1 = Object.
+          values(currentInfusions[j])[3];
+          const value2 = Object.
+          values(currentInfusions[j + 1])[3];
+          if (value1 > value2) {
+            const temp = currentInfusions[j];
+            currentInfusions[j] = currentInfusions[j + 1];
+            currentInfusions[j + 1] = temp;
+          }
+        }
+      }
+      return
+  }
+}
+
+watch(sortChoice, (newSortChoice) => {
+  sortInfusions(newSortChoice)
 })
 </script>
 
@@ -119,15 +210,16 @@ watch(afdeling, (newAfdeling) => {
     <div
       class="xl:w-[30vw] md:w-[40vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
     >
-      <!--      <table class="table-fixed invisible xl:visible ;">-->
-      <!--        <thead class="fixed pb-5">-->
-      <!--          <tr>-->
-      <!--            <th class="mr-2 ml-2 pr-1 pl-2">Status</th>-->
-      <!--            <th class="w-4/5 pl-2">Location</th>-->
-      <!--            <th class="mr-10 ml-2 pr-6 pl-2">Drug</th>-->
-      <!--          </tr>-->
-      <!--        </thead>-->
-      <!--      </table>-->
+      <div>
+        <select id="countries" v-model="sortChoice" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <option selected disabled hidden>Sort by</option>
+          <option value="remainingMl">Remaining IV</option>
+          <option value="time">Remaining time</option>
+          <option value="ward">Ward</option>
+          <option value="bed">bed</option>
+          <option value="drug">Drug</option>
+        </select>
+      </div>
       <div class="4xl:m-3 md:m-1 m-2 md:h-[74vh] h-[40vh] xl:w-[28vw] md:w-[39vw] overflow-auto">
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
@@ -155,16 +247,16 @@ watch(afdeling, (newAfdeling) => {
         <RouterView />
       </div>
     </div>
-    <!--    <div-->
-    <!--      class="mr-5 mb-3 md:h-[11vh] h-0 md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200 md:visible invisible"-->
-    <!--    >-->
-    <!--      <button-->
-    <!--        type="button"-->
-    <!--        class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] text-white bg-blue-500 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"-->
-    <!--      >-->
-    <!--        Report-->
-    <!--      </button>-->
-    <!--    </div>-->
+<!--        <div-->
+<!--          class="mr-5 mb-3 md:h-[11vh] h-0 md:w-[15vw] flex-initial rounded-[3vw] bg-gray-200 md:visible invisible"-->
+<!--        >-->
+<!--          <button-->
+<!--            type="button"-->
+<!--            class="mb-1font-[Open_Sans] m-5 h-[8vh] md:w-[8vw] flex-initial cursor-pointer place-content-center overflow-hidden rounded-[5vw] text-white bg-blue-500 p-5 text-center text-[4vh] hover:bg-sky-400 active:bg-sky-600 active:text-white"-->
+<!--          >-->
+<!--            Report-->
+<!--          </button>-->
+<!--        </div>-->
   </section>
 </template>
 
