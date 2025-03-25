@@ -159,7 +159,7 @@ watch(toggleStateMultiple, (newToggleStateMultiple) => {
 })
 
 const toggleGroupItemClasses =
-  'hover:bg-gray-100  data-[state=on]:bg-gray-200  flex h-[35px] w-[20vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none'
+  'hover:bg-gray-100  data-[state=on]:bg-gray-200  flex h-[35px] xl:w-[20vw] w-[30vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none'
 </script>
 
 <template>
@@ -228,25 +228,17 @@ const toggleGroupItemClasses =
       <h1>{{ afdeling }}</h1>
     </div>
     <div
-      class="xl:w-[30vw] md:w-[40vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
+      class="xl:w-[30vw] w-[100vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
     >
       <div>
         <ToggleGroupRoot v-model="toggleStateMultiple" type="single" class="flex">
-          <ToggleGroupItem
-            value="nonRun"
-            aria-label="Toggle italic"
-            :class="toggleGroupItemClasses"
-          >
+          <ToggleGroupItem value="nonRun" :class="toggleGroupItemClasses">
             Non-running
           </ToggleGroupItem>
-          <ToggleGroupItem
-            value="below10"
-            aria-label="Toggle italic"
-            :class="toggleGroupItemClasses"
-          >
+          <ToggleGroupItem value="below10" :class="toggleGroupItemClasses">
             below 10%
           </ToggleGroupItem>
-          <ToggleGroupItem value="1hour" aria-label="Toggle italic" :class="toggleGroupItemClasses">
+          <ToggleGroupItem value="1hour" :class="toggleGroupItemClasses">
             Less then 1 hour
           </ToggleGroupItem>
         </ToggleGroupRoot>
@@ -254,7 +246,7 @@ const toggleGroupItemClasses =
       <div>
         <select
           v-model="sortChoice"
-          class="bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="w-[90vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option selected disabled>Sort by</option>
           <option value="remainingMl">Remaining IV</option>

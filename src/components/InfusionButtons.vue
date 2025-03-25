@@ -73,7 +73,7 @@ const notifier = computed(() => {
   <div>
     <button @click="routeIt(props.id)" :class="notifier">
       <div :class="backgroundClass">{{ remainingPercentage }}%</div>
-      <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw]">
+      <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw] truncate text-ellipsis">
         {{ props.timeRemaining }}
       </div>
       <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw] truncate pl-2 text-ellipsis">
