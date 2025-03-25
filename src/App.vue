@@ -1,7 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import AllInfusions from '@/assets/generated_data_unique_with_time.json'
-
 import { Icon } from '@iconify/vue'
 import { provide, watch, ref } from 'vue'
 import {
@@ -16,6 +15,8 @@ import {
   SelectTrigger,
   SelectValue,
   SelectViewport,
+  ToggleGroupItem,
+  ToggleGroupRoot,
 } from 'radix-vue'
 import InfusionButtons from '@/components/InfusionButtons.vue'
 
@@ -51,6 +52,33 @@ watch(afdeling, (newAfdeling) => {
   }
   filterAllInfusions(newAfdeling)
 })
+
+function filterButtons(filter) {
+  if (filter === 'nonRun') {
+    currentInfusions = currentInfusions.filter(
+      (infusion) => infusion.timeRemaining === 'Infusion not running',
+    )
+  } else if (filter === 'below10') {
+    currentInfusions = currentInfusions.filter(
+      (infusion) => infusion.totalMl / infusion.remainingMl > 10,
+    )
+    console.log('we filteren op infusen die minder dan 10% vulling bevatten')
+  } else if (filter === '1hour') {
+    currentInfusions = currentInfusions.filter((infusion) => {
+      if (!(infusion.timeRemaining === 'Infusion not running')) {
+        var splitstring = infusion.timeRemaining.split(':')
+        if (splitstring[0] === '0') {
+          return infusion
+        }
+      }
+    })
+    console.log('we filteren op infusen die minder dan 10 minuten doorlopen')
+  } else {
+    currentInfusions = AllInfusions
+  }
+
+  // currentInfusions = currentInfusions.filter((infusion) => infusion.timeRemaining === 'Infusion not running')
+}
 
 function sortInfusions(newSortChoice) {
   switch (true) {
@@ -125,6 +153,15 @@ function sortInfusions(newSortChoice) {
 watch(sortChoice, (newSortChoice) => {
   sortInfusions(newSortChoice)
 })
+
+const toggleStateMultiple = ref()
+
+watch(toggleStateMultiple, (newToggleStateMultiple) => {
+  filterButtons(newToggleStateMultiple)
+})
+
+const toggleGroupItemClasses =
+  'hover:bg-gray-100  data-[state=on]:bg-gray-200  flex h-[35px] w-[20vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none'
 </script>
 
 <template>
@@ -196,12 +233,32 @@ watch(sortChoice, (newSortChoice) => {
       class="xl:w-[30vw] md:w-[40vw] m-3 flex-initial bg-gray-200 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
     >
       <div>
+        <ToggleGroupRoot v-model="toggleStateMultiple" type="single" class="flex">
+          <ToggleGroupItem
+            value="nonRun"
+            aria-label="Toggle italic"
+            :class="toggleGroupItemClasses"
+          >
+            Non-running
+          </ToggleGroupItem>
+          <ToggleGroupItem
+            value="below10"
+            aria-label="Toggle italic"
+            :class="toggleGroupItemClasses"
+          >
+            below 10%
+          </ToggleGroupItem>
+          <ToggleGroupItem value="1hour" aria-label="Toggle italic" :class="toggleGroupItemClasses">
+            Less then 1 hour
+          </ToggleGroupItem>
+        </ToggleGroupRoot>
+      </div>
+      <div>
         <select
-          id="countries"
           v-model="sortChoice"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
-          <option selected disabled hidden>Sort by</option>
+          <option selected disabled>Sort by</option>
           <option value="remainingMl">Remaining IV</option>
           <option value="time">Remaining time</option>
           <option value="ward">Ward</option>
@@ -209,7 +266,7 @@ watch(sortChoice, (newSortChoice) => {
           <option value="drug">Drug</option>
         </select>
       </div>
-      <div class="4xl:m-3 md:m-1 m-2 md:h-[74vh] h-[40vh] xl:w-[28vw] md:w-[39vw] overflow-auto">
+      <div class="4xl:m-3 md:m-1 m-2 md:h-[67vh] h-[40vh] xl:w-[28vw] md:w-[39vw] overflow-auto">
         <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
           <InfusionButtons
             :department="infusion.department"

@@ -23,7 +23,11 @@ def generate_data(num_entries):
     while len(data) < num_entries:
         department = random.choice(departments)
         ward = f"ward {random.randint(1, 6)}"
-        bed = f"bed {random.randint(1, 10)}"
+        tempbed = random.randint(1, 16)
+        if tempbed < 10:
+            bed =  f'bed 0{tempbed}'
+        else:
+            bed = f'bed {tempbed}'
         pumpdrugname = random.choice(drugs)
         status = random.choice(["green", "orange", "red"])
         total_ml = random.randint(100, 600)
@@ -33,7 +37,7 @@ def generate_data(num_entries):
             PumpCumTime = "Infusion not running"
             PumpRemTime = "Infusion not running"
         else:
-            PumpCumTimeMinutesTotal = (((total_ml - remaining_ml) / actRate) * 60)
+            PumpCumTimeMinutesTotal = math.trunc(((total_ml - remaining_ml) / actRate) * 60)
             PumpCumHours = math.trunc(PumpCumTimeMinutesTotal / 60)
             if PumpCumTimeMinutesTotal % 60 == 0:
                 CumMinutes = "00"
@@ -47,7 +51,7 @@ def generate_data(num_entries):
                 PumpCumTime = f"{PumpCumHours}"  + ":" + f"{CumMinutes}"
 
 
-            PumpRemTimeMinutesTotal = ((remaining_ml / actRate) * 60)
+            PumpRemTimeMinutesTotal = math.trunc((remaining_ml / actRate) * 60)
             PumpRemHours = math.trunc(PumpRemTimeMinutesTotal / 60)
             if PumpRemTimeMinutesTotal % 60 == 0:
                 Minutes = "00"
