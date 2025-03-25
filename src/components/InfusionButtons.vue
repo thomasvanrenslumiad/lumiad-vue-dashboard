@@ -2,43 +2,48 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 const props = defineProps({
-  id: String,
-  status: String,
+  department: String,
   ward: String,
   bed: String,
   drug: String,
+  status: String,
   totalMl: Number,
   remainingMl: Number,
   mlPerHour: Number,
+  timeRunning: String,
+  timeRemaining: String,
+  id: String,
+  softwareVersion: String,
+  medicalLibraryVersion: String,
 })
 const remainingPercentage = computed(() => (props.remainingMl / (props.totalMl / 100)).toFixed(1))
 const route = useRouter()
 function routeIt(infusionID) {
   route.push({ name: 'Infusion-details', params: { infusionId: infusionID } })
 }
-
-function remainingTime() {
-  return (props.remainingMl / props.mlPerHour) * 60
-}
-
-const remainingHours = computed(() => {
-  if (props.mlPerHour === 0) {
-    return 'Infusion not running'
-  }
-  return (remainingTime() / 60).toFixed(0)
-})
-const remainingMinutes = computed(() => {
-  switch (true) {
-    case props.mlPerHour === 0:
-      return ' '
-    case remainingTime() % 60 === 0:
-      return '00'
-    case remainingTime() % 60 < 10:
-      return '0' + (remainingTime() % 60).toFixed(0)
-    default:
-      return (remainingTime() % 60).toFixed(0)
-  }
-})
+// Remaining time and it's functions have been replaced by dummy data as the IV's track this data
+// function remainingTime() {
+//   return (props.remainingMl / props.mlPerHour) * 60
+// }
+//
+// const remainingHours = computed(() => {
+//   if (props.mlPerHour === 0) {
+//     return 'Infusion not running'
+//   }
+//   return (remainingTime() / 60).toFixed(0)
+// })
+// const remainingMinutes = computed(() => {
+//   switch (true) {
+//     case props.mlPerHour === 0:
+//       return ' '
+//     case remainingTime() % 60 === 0:
+//       return '00'
+//     case remainingTime() % 60 < 10:
+//       return '0' + (remainingTime() % 60).toFixed(0)
+//     default:
+//       return (remainingTime() % 60).toFixed(0)
+//   }
+// })
 
 const backgroundClass = computed(() => {
   switch (true) {
@@ -54,7 +59,9 @@ const backgroundClass = computed(() => {
 })
 
 const notifier = computed(() => {
-  if (props.mlPerHour === 0) {
+  if (props.remainingMl === 0) {
+    return 'm-2 flex 4xl:w-[27VW] xl:w-[25.5VW] md:w-[34vw] w-[80vw] cursor-pointer rounded-full bg-red-200 hover:bg-red-500 hover:text-white focus:bg-red-700 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-red-800 active:bg-gray-700 active:text-white outline-red-500 outline-5  '
+  } else if (props.mlPerHour === 0) {
     return 'm-2 flex 4xl:w-[27VW] xl:w-[25.5VW] md:w-[34vw] w-[80vw] cursor-pointer rounded-full bg-yellow-200 hover:bg-yellow-500 hover:text-white focus:bg-yellow-700 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-red-500 active:bg-gray-700 active:text-white outline-orange-500 outline-3  '
   } else {
     return 'm-2 flex 4xl:w-[27VW] xl:w-[25.5VW] md:w-[34vw] w-[80vw] cursor-pointer rounded-full bg-gray-400 hover:bg-gray-500 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black active:bg-gray-700 active:text-white '
@@ -67,7 +74,7 @@ const notifier = computed(() => {
     <button @click="routeIt(props.id)" :class="notifier">
       <div :class="backgroundClass">{{ remainingPercentage }}%</div>
       <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw]">
-        {{ remainingHours }}:{{ remainingMinutes }}
+        {{ props.timeRemaining }}
       </div>
       <div class="4xl:w-[6.85VW] md:w-[8VW] w-[25vw] truncate pl-2 text-ellipsis">
         {{ props.ward }}

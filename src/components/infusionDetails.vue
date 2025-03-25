@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import dummy from '@/assets/generated_data_unique.json'
+import dummy from '@/assets/generated_data_unique_with_time.json'
 import { ProgressIndicator, ProgressRoot } from 'radix-vue'
 const infusion = ref(null)
 const percentage = ref(null)
