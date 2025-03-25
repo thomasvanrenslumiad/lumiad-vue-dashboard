@@ -122,14 +122,13 @@ function sortInfusions(newSortChoice) {
     }
     case newSortChoice === 'bed': {
       console.log('bed')
-      let BedSort = currentInfusions.reduce((acc, curr) => {
+      currentInfusions = currentInfusions.reduce((acc, curr) => {
         let ind = acc.findIndex((item) => item.bed > curr.bed)
         if (ind === -1) ind = acc.length
         acc.splice(ind, 0, curr)
         currentInfusions = acc
         return acc
       }, [])
-      currentInfusions = BedSort
       return
     }
     case newSortChoice === 'drug':
