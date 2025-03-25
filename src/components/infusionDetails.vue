@@ -80,7 +80,7 @@ onMounted(() => {
     <div class="pt-4 pl-2" v-if="percentage">
       <ProgressRoot
         v-model="percentage"
-        class="bg-gray-500 relative overflow-hidden bg-blackA9 rounded-full w-full h-4 sm:h-[4vh] 4xl:h-[5vh]"
+        class="bg-gray-500 dark:bg-gray-300 relative overflow-hidden bg-blackA9 rounded-full w-full h-4 sm:h-[4vh] 4xl:h-[5vh]"
         style="transform: translateZ(0)"
       >
         <ProgressIndicator
