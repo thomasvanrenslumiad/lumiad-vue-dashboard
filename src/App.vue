@@ -251,11 +251,4 @@ const toggleGroupItemClasses =
 </template>
 
 <style scoped>
-body {
-  background-color: white;
-}
-
-.dark-mode {
-  background-color: black;
-}
 </style>
