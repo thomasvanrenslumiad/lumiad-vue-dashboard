@@ -22,6 +22,7 @@ const afdeling = defineModel()
 provide('afdeling', afdeling)
 
 const sortChoice = ref(null)
+// a save location for the previous sorting choice to permit sorting in reverse
 
 function filterAllInfusions(afdeling) {
   currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
@@ -69,6 +70,14 @@ function calculatePercentage(infusion) {
   return parseFloat(((infusion.remainingMl / infusion.totalMl) * 100).toFixed(1))
 }
 
+function timeToSeconds(time) {
+  // Ensure the time has a valid format like HH:SS
+  const [hours, seconds] = time.split(':').map(Number)
+
+  // Calculate the total time in minutes (convert to seconds if needed)
+  return hours * 60 + seconds // Convert to total minutes (HH treated as minutes)
+}
+
 function sortInfusions(newSortChoice) {
   switch (true) {
     case newSortChoice === 'remainingMl':
@@ -86,23 +95,18 @@ function sortInfusions(newSortChoice) {
       return
     case newSortChoice === 'time':
       console.log('time')
-      for (let i = 0; i < currentInfusions.length; i++) {
-        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-          const value1 = Object.values(currentInfusions[j])[9].split(':')
-          const value1defined = Number(String(value1[0]) + String(value1[1]))
-          // console.log(value1defined)
-          const value2 = Object.values(currentInfusions[j + 1])[9].split(':')
-          const value2defined = Number(String(value2[0]) + String(value2[1]))
+      currentInfusions.sort((a, b) => {
+        // If 'Infusion not running', treat it as the largest possible time value
+        const timeA = a.timeRemaining === 'Infusion not running' ? '9999:59' : a.timeRemaining
+        const timeB = b.timeRemaining === 'Infusion not running' ? '9999:59' : b.timeRemaining
 
-          if (value1defined > value2defined) {
-            console.log(Number(value1defined))
-            console.log(Number(value2defined))
-            const temp = currentInfusions[j]
-            currentInfusions[j] = currentInfusions[j + 1]
-            currentInfusions[j + 1] = temp
-          }
-        }
-      }
+        // Normalize the time (pad single-digit hours) before calculating the seconds
+        const normalizedTimeA = timeA.length < 5 ? `0${timeA}` : timeA
+        const normalizedTimeB = timeB.length < 5 ? `0${timeB}` : timeB
+
+        // Compare by total seconds (timeToSeconds) but treat 'Infusion not running' as the last
+        return timeToSeconds(normalizedTimeA) - timeToSeconds(normalizedTimeB)
+      })
       return
     case newSortChoice === 'ward': {
       console.log('ward')
@@ -179,14 +183,14 @@ const toggleGroupItemClasses =
         </option>
       </select>
     </header>
-    <section class="xl:flex xl:h-[75.92vh] overflow-hidden dark:bg-black">
+    <section class="xl:flex xl:h-[78.9vh] overflow-hidden dark:bg-black">
       <div
-        class="xl:m-3 xl:h-[75vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
+        class="xl:m-3 xl:h-[77vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
       >
         <h1>{{ afdeling }}</h1>
       </div>
       <div
-        class="xl:w-[30vw] w-[98vw] xl:h-[75vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
+        class="xl:w-[30vw] w-[98vw] xl:h-[77vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
       >
         <div>
           <ToggleGroupRoot v-model="toggleStateMultiple" type="single" class="flex">
@@ -215,7 +219,7 @@ const toggleGroupItemClasses =
           </select>
         </div>
         <div
-          class="4xl:m-3 md:m-1 m-2 4xl:h-[66vh] xl:h-[64vh] md:h-[60.2vh] h-[51.3vh] xl:w-[28vw] overflow-auto"
+          class="4xl:m-3 md:m-1 m-2 4xl:h-[68vh] xl:h-[67vh] md:h-[60.2vh] h-[51.3vh] xl:w-[28vw] overflow-auto"
         >
           <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
             <InfusionButtons
@@ -237,11 +241,11 @@ const toggleGroupItemClasses =
     </section>
     <section class="xl:flex overflow-hidden dark:bg-black">
       <div
-        class="xl:m-5 4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
+        class="xl:m-3 4xl:h-[11.25vh] xl:static xl:h-[12.5vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
       >
         <div
           id="infuusDetails"
-          class="xl:m-5 4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[98vw] xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
+          class="4XL:w-[98vw] xl:static xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
         >
           <RouterView />
         </div>
@@ -250,5 +254,4 @@ const toggleGroupItemClasses =
   </body>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

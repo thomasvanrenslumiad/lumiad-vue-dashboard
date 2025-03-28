@@ -5,6 +5,7 @@ import dummy from '@/assets/generated_data_unique_with_time.json'
 import { ProgressIndicator, ProgressRoot } from 'radix-vue'
 const infusion = ref(null)
 const percentage = ref(null)
+const percentageForBar = ref(null)
 const allInfusions = dummy
 const route = useRoute() // Get the current route to access the params
 
@@ -16,6 +17,11 @@ const calculatePercentage = (currentInfusion) => {
   percentage.value = parseFloat(
     ((currentInfusion.value.remainingMl / currentInfusion.value.totalMl) * 100).toFixed(1),
   )
+  if (percentage.value === 0) {
+    percentageForBar.value = 0.1
+  } else {
+    percentageForBar.value = percentage.value
+  }
 }
 const backgroundClass = computed(() => {
   switch (true) {
@@ -36,7 +42,6 @@ watch(
   (newId) => {
     fetchItem(newId)
     calculatePercentage(infusion)
-    console.log(percentage)
   },
 )
 
@@ -45,39 +50,38 @@ onMounted(() => {
   const id = route.params.infusionId
   fetchItem(id)
   calculatePercentage(infusion)
-  console.log(percentage)
 })
 </script>
 
 <template>
-  <div class="grid 4XL:grid-cols-5 xl:grid-cols-4 grid-cols-1">
+  <div class="grid 4XL:grid-cols-5 xl:grid-cols-4 grid-cols-1 static">
     <div class="xl:col-span-3 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2" v-if="infusion">
-      <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-500 text-white rounded-full">ward</div>
-        <div class="bg-gray-300 rounded-full">{{ infusion.ward }}</div>
+      <div class="text-center grid grid-cols-2 relative">
+        <div class="bg-blue-500 text-white rounded-full m-1 p-1">ward</div>
+        <div class="bg-gray-300 rounded-full m-1 p-1">{{ infusion.ward }}</div>
       </div>
-      <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-500 text-white rounded-full">ml/hour:</div>
-        <div class="bg-gray-300 rounded-full">{{ infusion.mlPerHour }}</div>
+      <div class="text-center grid grid-cols-2 relative">
+        <div class="bg-blue-500 text-white rounded-full m-1 p-1">ml/hour:</div>
+        <div class="bg-gray-300 rounded-full m-1 p-1">{{ infusion.mlPerHour }}</div>
       </div>
-      <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-500 text-white rounded-full">totalMl:</div>
-        <div class="bg-gray-300 rounded-full">{{ infusion.totalMl }}</div>
+      <div class="text-center grid grid-cols-2 relative">
+        <div class="bg-blue-500 text-white rounded-full m-1 p-1">totalMl:</div>
+        <div class="bg-gray-300 rounded-full m-1 p-1">{{ infusion.totalMl }}</div>
       </div>
-      <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-500 text-white rounded-full">bed:</div>
-        <div class="bg-gray-300 rounded-full">{{ infusion.bed }}</div>
+      <div class="text-center grid grid-cols-2 relative">
+        <div class="bg-blue-500 text-white rounded-full m-1 p-1">bed:</div>
+        <div class="bg-gray-300 rounded-full m-1 p-1">{{ infusion.bed }}</div>
       </div>
-      <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-500 text-white rounded-full">drug:</div>
-        <div class="bg-gray-300 rounded-full">{{ infusion.drug }}</div>
+      <div class="text-center grid grid-cols-2 relative">
+        <div class="bg-blue-500 text-white rounded-full m-1 p-1">drug:</div>
+        <div class="bg-gray-300 rounded-full m-1 p-1">{{ infusion.drug }}</div>
       </div>
-      <div class="text-center grid grid-cols-2">
-        <div class="bg-blue-500 text-white rounded-full">remainingMl:</div>
-        <div class="bg-gray-300 rounded-full">{{ infusion.remainingMl }}</div>
+      <div class="text-center grid grid-cols-2 relative">
+        <div class="bg-blue-500 text-white rounded-full m-1 p-1">remainingMl:</div>
+        <div class="bg-gray-300 rounded-full m-1 p-1">{{ infusion.remainingMl }}</div>
       </div>
     </div>
-    <div class="pt-4 pl-2" v-if="percentage">
+    <div class="pl-4 m-4" v-if="percentageForBar">
       <ProgressRoot
         v-model="percentage"
         class="bg-gray-500 dark:bg-gray-300 relative overflow-hidden bg-blackA9 rounded-full w-full h-4 sm:h-[4vh] 4xl:h-[5vh]"
@@ -85,8 +89,13 @@ onMounted(() => {
       >
         <ProgressIndicator
           :class="backgroundClass"
-          :style="`transform: translateX(-${100 - percentage}%)`"
+          :style="`transform: translateX(-${100 - percentageForBar}%)`"
         />
+        <h1
+          class="absolute bottom-0 left-0 right-0 top-0 grid place-items-center text-4xl font-bold text-white md:visible invisible"
+        >
+          {{ percentage }}%
+        </h1>
       </ProgressRoot>
     </div>
   </div>
