@@ -23,7 +23,6 @@ provide('afdeling', afdeling)
 
 const sortChoice = ref(null)
 // a save location for the previous sorting choice to permit sorting in reverse
-const prevSort = ref(null)
 
 function filterAllInfusions(afdeling) {
   currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
@@ -71,15 +70,13 @@ function calculatePercentage(infusion) {
   return parseFloat(((infusion.remainingMl / infusion.totalMl) * 100).toFixed(1))
 }
 
-function timeToSeconds(time)
-{
+function timeToSeconds(time) {
   // Ensure the time has a valid format like HH:SS
-  const [hours, seconds] = time.split(':').map(Number);
+  const [hours, seconds] = time.split(':').map(Number)
 
   // Calculate the total time in minutes (convert to seconds if needed)
-  return hours * 60 + seconds; // Convert to total minutes (HH treated as minutes)
+  return hours * 60 + seconds // Convert to total minutes (HH treated as minutes)
 }
-
 
 function sortInfusions(newSortChoice) {
   switch (true) {
@@ -100,15 +97,15 @@ function sortInfusions(newSortChoice) {
       console.log('time')
       currentInfusions.sort((a, b) => {
         // If 'Infusion not running', treat it as the largest possible time value
-        const timeA = a.timeRemaining === 'Infusion not running' ? '9999:59' : a.timeRemaining;
-        const timeB = b.timeRemaining === 'Infusion not running' ? '9999:59' : b.timeRemaining;
+        const timeA = a.timeRemaining === 'Infusion not running' ? '9999:59' : a.timeRemaining
+        const timeB = b.timeRemaining === 'Infusion not running' ? '9999:59' : b.timeRemaining
 
         // Normalize the time (pad single-digit hours) before calculating the seconds
-        const normalizedTimeA = timeA.length < 5 ? `0${timeA}` : timeA;
-        const normalizedTimeB = timeB.length < 5 ? `0${timeB}` : timeB;
+        const normalizedTimeA = timeA.length < 5 ? `0${timeA}` : timeA
+        const normalizedTimeB = timeB.length < 5 ? `0${timeB}` : timeB
 
         // Compare by total seconds (timeToSeconds) but treat 'Infusion not running' as the last
-        return timeToSeconds(normalizedTimeA) - timeToSeconds(normalizedTimeB);
+        return timeToSeconds(normalizedTimeA) - timeToSeconds(normalizedTimeB)
       })
       return
     case newSortChoice === 'ward': {
