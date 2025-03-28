@@ -66,7 +66,7 @@ function FilterLessThenHour() {
 function excecuteFilters() {
   toggleStateMultiple.value.forEach(myFunction)
 }
-function myFunction(value, index, array) {
+function myFunction(value) {
   switch (true) {
     case value === 'nonRun':
       FilterNonRun()
