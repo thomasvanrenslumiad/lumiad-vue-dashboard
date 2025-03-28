@@ -73,17 +73,17 @@ const notifier = computed(() => {
   <div>
     <button @click="routeIt(props.id)" :class="notifier">
       <div :class="backgroundClass">{{ remainingPercentage }}%</div>
-      <div class="4xl:w-[6.85VW]  w-[25vw] truncate text-ellipsis">
+      <div class="4xl:w-[6.85VW] w-[25vw] truncate text-ellipsis">
         {{ props.timeRemaining }}
       </div>
-      <div class="4xl:w-[6.85VW]  w-[25vw] truncate pl-2 text-ellipsis">
+      <div class="4xl:w-[6.85VW] w-[25vw] truncate pl-2 text-ellipsis">
         {{ props.ward }}
       </div>
-      <div class="4xl:w-[6.85VW]  w-[25vw] truncate pl-2 text-ellipsis">
+      <div class="4xl:w-[6.85VW] w-[25vw] truncate pl-2 text-ellipsis">
         {{ props.bed }}
       </div>
       <div
-        class="4xl:w-[3.5VW] xl:w-[3VW]  w-[20vw] rounded-2xl bg-red-500 truncate pl-2 text-ellipsis text-white"
+        class="4xl:w-[3.5VW] xl:w-[3VW] w-[20vw] rounded-2xl bg-red-500 truncate pl-2 text-ellipsis text-white"
       >
         {{ props.drug }}
       </div>
@@ -91,5 +91,4 @@ const notifier = computed(() => {
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

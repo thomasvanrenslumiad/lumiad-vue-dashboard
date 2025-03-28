@@ -179,9 +179,9 @@ const toggleGroupItemClasses =
         </option>
       </select>
     </header>
-    <section class="xl:flex xl:h-[75.92vh]  overflow-hidden dark:bg-black">
+    <section class="xl:flex xl:h-[75.92vh] overflow-hidden dark:bg-black">
       <div
-        class="xl:m-3 xl:h-[75vh]  h-[0vh] xl:w-[70vw]  flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
+        class="xl:m-3 xl:h-[75vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
       >
         <h1>{{ afdeling }}</h1>
       </div>
@@ -215,7 +215,7 @@ const toggleGroupItemClasses =
           </select>
         </div>
         <div
-          class="4xl:m-3 md:m-1 m-2 4xl:h-[66vh] xl:h-[64vh] md:h-[60.2vh] h-[51.3vh] xl:w-[28vw]  overflow-auto"
+          class="4xl:m-3 md:m-1 m-2 4xl:h-[66vh] xl:h-[64vh] md:h-[60.2vh] h-[51.3vh] xl:w-[28vw] overflow-auto"
         >
           <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
             <InfusionButtons
@@ -237,11 +237,11 @@ const toggleGroupItemClasses =
     </section>
     <section class="xl:flex overflow-hidden dark:bg-black">
       <div
-        class="xl:m-5  4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
+        class="xl:m-5 4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
       >
         <div
           id="infuusDetails"
-          class="xl:m-5  4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[98vw] xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw]  p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
+          class="xl:m-5 4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[98vw] xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
         >
           <RouterView />
         </div>
@@ -251,7 +251,6 @@ const toggleGroupItemClasses =
 </template>
 
 <style scoped>
-
 body {
   background-color: white;
 }
