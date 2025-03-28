@@ -154,7 +154,7 @@ watch(toggleStateMultiple, (newToggleStateMultiple) => {
 })
 
 const toggleGroupItemClasses =
-  'hover:bg-gray-100  data-[state=on]:bg-gray-200  flex h-[35px] xl:w-[20vw] w-[30vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none dark:bg-gray-400  dark:border-gray-600 dark:hover:bg-gray-300  '
+  'hover:bg-gray-100  data-[state=on]:bg-gray-200  flex h-[35px] xl:w-[20vw] md:w-[35vw] w-[30vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none dark:bg-gray-300  dark:border-gray-600 dark:hover:bg-gray-400 dark:data-[state=on]:bg-gray-400 '
 </script>
 
 <template>
@@ -172,21 +172,21 @@ const toggleGroupItemClasses =
       />
       <select
         v-model="afdeling"
-        class="md:flex md:static absolute top-3 left-25 w-[70vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-400 dark:border-gray-600 dark:hover:bg-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        class="md:flex md:static absolute top-3 left-25 w-[70vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:hover:bg-gray-400 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
         <option v-for="(option, index) in options" :value="option" :key="index">
           {{ option }}
         </option>
       </select>
     </header>
-    <section class="md:flex xl:h-[78vh] md:h-[70vh] overflow-hidden dark:bg-black">
+    <section class="xl:flex xl:h-[75.92vh] overflow-hidden dark:bg-black">
       <div
-        class="m-3 xl:h-[76vh] md:h-[68vh] h-[0vh] xl:w-[70vw] md:w-3/5 flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 md:visible invisible"
+        class="xl:m-3 xl:h-[75vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
       >
         <h1>{{ afdeling }}</h1>
       </div>
       <div
-        class="xl:w-[30vw] w-[100vw] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
+        class="xl:w-[30vw] w-[98vw] xl:h-[75vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
       >
         <div>
           <ToggleGroupRoot v-model="toggleStateMultiple" type="single" class="flex">
@@ -204,7 +204,7 @@ const toggleGroupItemClasses =
         <div>
           <select
             v-model="sortChoice"
-            class="w-[90vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-400 dark:border-gray-600 dark:hover:bg-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="w-[95vw] xl:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:hover:bg-gray-400 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option selected disabled>Sort by</option>
             <option value="remainingMl">remaining %IV</option>
@@ -215,7 +215,7 @@ const toggleGroupItemClasses =
           </select>
         </div>
         <div
-          class="4xl:m-3 md:m-1 m-2 4xl:h-[67vh] xl:h-[65vh] h-[40vh] xl:w-[28vw] md:w-[56vw] overflow-auto"
+          class="4xl:m-3 md:m-1 m-2 4xl:h-[66vh] xl:h-[64vh] md:h-[60.2vh] h-[51.3vh] xl:w-[28vw] overflow-auto"
         >
           <div v-for="infusion in currentInfusions" :key="infusion.id + Math.random()">
             <InfusionButtons
@@ -237,11 +237,11 @@ const toggleGroupItemClasses =
     </section>
     <section class="xl:flex overflow-hidden dark:bg-black">
       <div
-        class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
+        class="xl:m-5 4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
       >
         <div
           id="infuusDetails"
-          class="mr-5 mb-3 ml-5 4xl:h-[10vh] xl:h-[11vh] 4XL:w-[98vw] xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] bg-gray-200 dark:bg-gray-500 p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
+          class="xl:m-5 4xl:h-[13vh] xl:h-[12.5vh] 4XL:w-[98vw] xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
         >
           <RouterView />
         </div>
@@ -250,4 +250,5 @@ const toggleGroupItemClasses =
   </body>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
