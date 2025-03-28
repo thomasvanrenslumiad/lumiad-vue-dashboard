@@ -4,6 +4,7 @@ import AllInfusions from '@/assets/generated_data_unique_with_time.json'
 import { provide, ref, watch } from 'vue'
 import { ToggleGroupItem, ToggleGroupRoot } from 'radix-vue'
 import InfusionButtons from '@/components/InfusionButtons.vue'
+import { Icon } from '@iconify/vue'
 
 let currentInfusions = AllInfusions
 
@@ -39,31 +40,48 @@ watch(afdeling, (newAfdeling) => {
   filterAllInfusions(newAfdeling)
 })
 
-function filterButtons(filter) {
-  if (filter === 'nonRun') {
-    currentInfusions = currentInfusions.filter(
-      (infusion) => infusion.timeRemaining === 'Infusion not running',
-    )
-  } else if (filter === 'below10') {
-    currentInfusions = currentInfusions.filter(
-      (infusion) => infusion.totalMl / infusion.remainingMl > 10,
-    )
-    console.log('we filteren op infusen die minder dan 10% vulling bevatten')
-  } else if (filter === '1hour') {
-    currentInfusions = currentInfusions.filter((infusion) => {
-      if (!(infusion.timeRemaining === 'Infusion not running')) {
-        var splitstring = infusion.timeRemaining.split(':')
-        if (splitstring[0] === '0') {
-          return infusion
-        }
+function FilterNonRun() {
+  currentInfusions = currentInfusions.filter(
+    (infusion) => infusion.timeRemaining === 'Infusion not running',
+  )
+}
+
+function FilterBelow10() {
+  currentInfusions = currentInfusions.filter(
+    (infusion) => infusion.totalMl / infusion.remainingMl > 10,
+  )
+}
+
+function FilterLessThenHour() {
+  currentInfusions = currentInfusions.filter((infusion) => {
+    if (!(infusion.timeRemaining === 'Infusion not running')) {
+      var splitstring = infusion.timeRemaining.split(':')
+      if (splitstring[0] === '0') {
+        return infusion
       }
-    })
-    console.log('we filteren op infusen die minder dan 10 minuten doorlopen')
-  } else {
-    currentInfusions = AllInfusions
+    }
+  })
+}
+
+function excecuteFilters() {
+  toggleStateMultiple.value.forEach(myFunction)
+}
+function myFunction(value, index, array) {
+  switch (true) {
+    case value === 'nonRun':
+      FilterNonRun()
+      return
+    case value === 'below10':
+      FilterBelow10()
+      return
+    case value === '1hour':
+      FilterLessThenHour()
+      return
+    case value === 'reset':
+      returnToAllInfusions()
   }
 
-  // currentInfusions = currentInfusions.filter((infusion) => infusion.timeRemaining === 'Infusion not running')
+  console.log(value)
 }
 
 function calculatePercentage(infusion) {
@@ -151,14 +169,14 @@ watch(sortChoice, (newSortChoice) => {
   sortInfusions(newSortChoice)
 })
 
-const toggleStateMultiple = ref()
+const toggleStateMultiple = ref(['reset'])
 
 watch(toggleStateMultiple, (newToggleStateMultiple) => {
-  filterButtons(newToggleStateMultiple)
+  excecuteFilters(newToggleStateMultiple)
 })
 
 const toggleGroupItemClasses =
-  'hover:bg-gray-100  data-[state=on]:bg-gray-200  flex h-[35px] xl:w-[20vw] md:w-[35vw] w-[30vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none dark:bg-gray-300  dark:border-gray-600 dark:hover:bg-gray-400 dark:data-[state=on]:bg-gray-400 '
+  'hover:bg-gray-100  data-[state=on]:bg-blue-500 data-[state=on]:text-white  flex h-[35px] xl:w-[20vw] md:w-[35vw] w-[30vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none dark:bg-gray-300  dark:border-gray-600 dark:hover:bg-gray-400 dark:data-[state=on]:bg-gray-400 '
 </script>
 
 <template>
@@ -193,7 +211,7 @@ const toggleGroupItemClasses =
         class="xl:w-[30vw] w-[98vw] xl:h-[77vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
       >
         <div>
-          <ToggleGroupRoot v-model="toggleStateMultiple" type="single" class="flex">
+          <ToggleGroupRoot v-model="toggleStateMultiple" type="multiple" class="flex">
             <ToggleGroupItem value="nonRun" :class="toggleGroupItemClasses">
               Non-running
             </ToggleGroupItem>
@@ -218,6 +236,22 @@ const toggleGroupItemClasses =
             <option value="drug">Drug</option>
           </select>
         </div>
+        <div class="grid grid-cols-3">
+          <div class="grid grid-cols-2 w-[9vw]">
+            <div class="bg-green-500 h-[4vh] text-center rounded-l-2xl outline-1 outline-gray-800">
+              sorting
+            </div>
+            <div class="grid grid-cols-1 rounded-r-2xl w-[1vw]">
+              <button class="h-[2vh] outline-1 outline-gray-800 rounded-tr-2xl bg-green-500">
+                <Icon icon="radix-icons:arrow-up" class="" />
+              </button>
+              <button class="h-[2vh] outline-1 outline-gray-800 rounded-br-2xl bg-green-500">
+                <Icon icon="radix-icons:arrow-down" />
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div
           class="4xl:m-3 md:m-1 m-2 4xl:h-[68vh] xl:h-[67vh] md:h-[60.2vh] h-[51.3vh] xl:w-[28vw] overflow-auto"
         >
