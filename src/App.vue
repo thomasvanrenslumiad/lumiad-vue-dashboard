@@ -53,21 +53,20 @@ function FilterBelow10() {
 }
 
 function FilterLessThenHour() {
-  currentInfusions = currentInfusions.reverse();
-  // currentInfusions = currentInfusions.filter((infusion) => {
-  //   if (!(infusion.timeRemaining === 'Infusion not running')) {
-  //     var splitstring = infusion.timeRemaining.split(':')
-  //     if (splitstring[0] === '0') {
-  //       return infusion
-  //     }
-  //   }
-  // })
+  currentInfusions = currentInfusions.filter((infusion) => {
+    if (!(infusion.timeRemaining === 'Infusion not running')) {
+      var splitstring = infusion.timeRemaining.split(':')
+      if (splitstring[0] === '0') {
+        return infusion
+      }
+    }
+  })
 }
 
 function excecuteFilters() {
-  toggleStateMultiple.value.forEach(myFunction)
+  toggleStateMultiple.value.forEach(filterIt)
 }
-function myFunction(value) {
+function filterIt(value) {
   switch (true) {
     case value === 'nonRun':
       FilterNonRun()
@@ -184,47 +183,6 @@ function sortInfusions(newSortChoice) {
       return
   }
 }
-function sortPercentageFunction(newSortPercentage) {
-  console.log(newSortPercentage)
-  switch (true) {
-    case newSortPercentage === 'up':
-      console.log('up here')
-      for (let i = 0; i < currentInfusions.length; i++) {
-        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-
-          const value1 = calculatePercentage(currentInfusions[j])
-          const value2 = calculatePercentage(currentInfusions[j + 1])
-          if (value1 > value2) {
-            const temp = currentInfusions[j]
-            currentInfusions[j] = currentInfusions[j + 1]
-            currentInfusions[j + 1] = temp
-          }
-        }
-      }
-      return
-    case newSortPercentage === 'down':
-      for (let i = 0; i < currentInfusions.length; i++) {
-        for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-
-          const value1 = calculatePercentage(currentInfusions[j])
-          const value2 = calculatePercentage(currentInfusions[j + 1])
-          if (value1 < value2) {
-            const temp = currentInfusions[j]
-            currentInfusions[j] = currentInfusions[j + 1]
-            currentInfusions[j + 1] = temp
-          }
-        }
-      }
-      return
-  }
-}
-function sortPercentageChoice(choice){
-  sortPercentage.value = choice;
-}
-const sortPercentage = ref(null)
-watch(sortPercentage, (newSortPercentage) => {
-  sortPercentageFunction(newSortPercentage)
-} )
 
 watch(sortChoice, (newSortChoice) => {
   sortInfusions(newSortChoice)
