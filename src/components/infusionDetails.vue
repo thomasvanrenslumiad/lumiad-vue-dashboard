@@ -54,7 +54,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid 4XL:grid-cols-5 xl:grid-cols-4 grid-cols-1 static">
+  <div class="grid 4XL:grid-cols-5 xl:grid-cols-4 grid-cols-1 static ">
     <div class="xl:col-span-3 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2" v-if="infusion">
       <div class="text-center grid grid-cols-2 relative">
         <div class="bg-blue-500 text-white rounded-full m-1 p-1">ward</div>

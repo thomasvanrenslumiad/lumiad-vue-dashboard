@@ -21,29 +21,6 @@ const route = useRouter()
 function routeIt(infusionID) {
   route.push({ name: 'Infusion-details', params: { infusionId: infusionID } })
 }
-// Remaining time and it's functions have been replaced by dummy data as the IV's track this data
-// function remainingTime() {
-//   return (props.remainingMl / props.mlPerHour) * 60
-// }
-//
-// const remainingHours = computed(() => {
-//   if (props.mlPerHour === 0) {
-//     return 'Infusion not running'
-//   }
-//   return (remainingTime() / 60).toFixed(0)
-// })
-// const remainingMinutes = computed(() => {
-//   switch (true) {
-//     case props.mlPerHour === 0:
-//       return ' '
-//     case remainingTime() % 60 === 0:
-//       return '00'
-//     case remainingTime() % 60 < 10:
-//       return '0' + (remainingTime() % 60).toFixed(0)
-//     default:
-//       return (remainingTime() % 60).toFixed(0)
-//   }
-// })
 
 const backgroundClass = computed(() => {
   switch (true) {
