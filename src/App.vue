@@ -79,9 +79,8 @@ function filterIt(value) {
       return
     case value === 'reset':
       returnToAllInfusions()
+      sortInfusions(sortChoice.value)
   }
-
-  console.log(value)
 }
 
 function calculatePercentage(infusion) {
@@ -115,7 +114,6 @@ function sortInfusions(newSortChoice) {
       }
       return
     case newSortChoice === 'time':
-      console.log('time')
       currentInfusions.sort((a, b) => {
         // If 'Infusion not running', treat it as the largest possible time value
         const timeA = a.timeRemaining === 'Infusion not running' ? '9999:59' : a.timeRemaining
@@ -133,7 +131,6 @@ function sortInfusions(newSortChoice) {
       }
       return
     case newSortChoice === 'ward': {
-      console.log('ward')
       currentInfusions = currentInfusions.reduce((acc, curr) => {
         let ind = acc.findIndex((item) => item.ward > curr.ward)
         if (ind === -1) ind = acc.length
@@ -147,7 +144,6 @@ function sortInfusions(newSortChoice) {
       return
     }
     case newSortChoice === 'bed': {
-      console.log('bed')
       currentInfusions = currentInfusions.reduce((acc, curr) => {
         let ind = acc.findIndex((item) => item.bed > curr.bed)
         if (ind === -1) ind = acc.length
@@ -161,7 +157,6 @@ function sortInfusions(newSortChoice) {
       return
     }
     case newSortChoice === 'drug':
-      console.log('drug')
       for (let i = 0; i < currentInfusions.length; i++) {
         for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
           const value1 = Object.values(currentInfusions[j])[3]
