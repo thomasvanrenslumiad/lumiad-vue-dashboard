@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 import AllInfusions from '@/assets/generated_data_unique_with_time.json'
 import { provide, ref, watch } from 'vue'
-import { ToggleGroupItem, ToggleGroupRoot, Toggle  } from 'radix-vue'
+import { ToggleGroupItem, ToggleGroupRoot, Toggle } from 'radix-vue'
 import InfusionButtons from '@/components/InfusionButtons.vue'
 import { Icon } from '@iconify/vue'
 
@@ -96,15 +96,11 @@ function timeToSeconds(time) {
   return hours * 60 + seconds // Convert to total minutes (HH treated as minutes)
 }
 
-
-
-
 function sortInfusions(newSortChoice) {
   switch (true) {
     case newSortChoice === 'remainingMl':
       for (let i = 0; i < currentInfusions.length; i++) {
         for (let j = 0; j < currentInfusions.length - 1 - i; j++) {
-
           const value1 = calculatePercentage(currentInfusions[j])
           const value2 = calculatePercentage(currentInfusions[j + 1])
           if (value1 > value2) {
@@ -199,8 +195,8 @@ watch(toggleStateMultiple, (newToggleStateMultiple) => {
   excecuteFilters(newToggleStateMultiple)
 })
 
-function reverse(){
-  currentInfusions = currentInfusions.reverse();
+function reverse() {
+  currentInfusions = currentInfusions.reverse()
 }
 const toggleGroupItemClasses =
   'hover:bg-gray-100  data-[state=on]:bg-blue-500 data-[state=on]:text-white  flex h-[35px] xl:w-[20vw] md:w-[35vw] w-[30vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none dark:bg-gray-300  dark:border-gray-600 dark:hover:bg-gray-400 dark:data-[state=on]:bg-gray-400 '
@@ -221,7 +217,7 @@ const toggleGroupItemClasses =
       />
       <select
         v-model="afdeling"
-        class="md:flex md:static  absolute top-3 left-25 w-[70vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:hover:bg-gray-400 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        class="md:flex md:static absolute top-3 left-25 w-[70vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:hover:bg-gray-400 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
         <option v-for="(option, index) in options" :value="option" :key="index">
           {{ option }}
@@ -230,7 +226,7 @@ const toggleGroupItemClasses =
     </header>
     <section class="xl:flex 4xl:h-[78.9vh] xl:h-[75vh] overflow-hidden dark:bg-black">
       <div
-        class="xl:m-3 xl:h-[77vh]  h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
+        class="xl:m-3 xl:h-[77vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
       >
         <h1>{{ afdeling }}</h1>
       </div>
@@ -265,16 +261,11 @@ const toggleGroupItemClasses =
           <Toggle
             v-model:pressed="toggleState"
             aria-label="Toggle italic"
-            class="hover:bg-gray-200 text-black data-[state=on]:bg-blue-500 data-[state=on]:text-white  flex  items-center justify-center rounded bg-gray-50 border border-gray-300   "
+            class="hover:bg-gray-200 text-black data-[state=on]:bg-blue-500 data-[state=on]:text-white flex items-center justify-center rounded bg-gray-50 border border-gray-300"
           >
-            <Icon
-              icon="radix-icons:caret-sort"
-              class="color-black"
-            />
+            <Icon icon="radix-icons:caret-sort" class="color-black" />
           </Toggle>
-
         </div>
-
 
         <div
           class="4xl:m-3 md:m-1 m-2 4xl:h-[68vh] xl:h-[60vh] md:h-[60.2vh] h-[51.3vh] xl:w-[28vw] overflow-auto"
@@ -299,11 +290,11 @@ const toggleGroupItemClasses =
     </section>
     <section class="xl:flex overflow-hidden dark:bg-black">
       <div
-        class="xl:m-3 4xl:h-[11.25vh] xl:static   xl:h-[14.5vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
+        class="xl:m-3 4xl:h-[11.25vh] xl:static xl:h-[14.5vh] 4XL:w-[100vw] xl:w-[100vw] flex-initial md:rounded-[1vw] rounded-[3vw] bg-gray-200 dark:bg-gray-500"
       >
         <div
           id="infuusDetails"
-          class="4XL:w-[98vw] xl:static xl:w-[96vw]  flex-initial overflow-hidden rounded-[2vw] p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
+          class="4XL:w-[98vw] xl:static xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
         >
           <RouterView />
         </div>
