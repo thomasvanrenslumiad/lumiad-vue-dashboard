@@ -1,7 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import AllInfusions from '@/assets/generated_data_unique_with_time.json'
-import { provide, ref, watch } from 'vue'
+import { provide, ref, watch, onMounted } from 'vue'
 import { ToggleGroupItem, ToggleGroupRoot, Toggle } from 'radix-vue'
 import InfusionButtons from '@/components/InfusionButtons.vue'
 import { Icon } from '@iconify/vue'
@@ -19,9 +19,12 @@ const options = [
   'Pediatrie',
   'Psychiatrie',
 ]
-const afdeling = defineModel()
+const afdeling = defineModel('afdeling')
 provide('afdeling', afdeling)
-
+onMounted(() => {
+  // Set the first default value from the list
+  afdeling.value = options[0]
+})
 const sortChoice = ref(null)
 // a save location for the previous sorting choice to permit sorting in reverse
 
@@ -182,7 +185,7 @@ watch(sortChoice, (newSortChoice) => {
 const toggleStateMultiple = ref(['reset'])
 const toggleState = ref(false)
 
-watch(toggleState, (newToggleState) => {
+watch(toggleState, () => {
   reverse()
 })
 
@@ -214,7 +217,12 @@ const toggleGroupItemClasses =
         v-model="afdeling"
         class="md:flex md:static absolute top-3 left-25 w-[70vw] md:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:hover:bg-gray-400 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-        <option v-for="(option, index) in options" :value="option" :key="index">
+        <option
+          v-for="(option, index) in options"
+          :value="option"
+          :key="index"
+          v-bind:selected="index === 0"
+        >
           {{ option }}
         </option>
       </select>
