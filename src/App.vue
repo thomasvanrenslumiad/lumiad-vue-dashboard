@@ -1,12 +1,10 @@
 <script setup>
-import { RouterView } from 'vue-router'
 import AllInfusions from '@/assets/generated_data_unique_with_time.json'
 import { provide, ref, watch } from 'vue'
 import { ToggleGroupItem, ToggleGroupRoot, Toggle } from 'radix-vue'
 import InfusionButtons from '@/components/InfusionButtons.vue'
 import { Icon } from '@iconify/vue'
 import { store } from '@/stores/infusionStore.js'
-import InfusionDetails from '@/components/infusionDetails.vue'
 import InfusionDetailsReworkNoRouter from '@/components/infusionDetailsReworkNoRouter.vue'
 
 let currentInfusions = AllInfusions
@@ -189,7 +187,7 @@ watch(sortChoice, (newSortChoice) => {
 const toggleStateMultiple = ref(['reset'])
 const toggleState = ref(false)
 
-watch(toggleState, (newToggleState) => {
+watch(toggleState, () => {
   reverse()
 })
 
