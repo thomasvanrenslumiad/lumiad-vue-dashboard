@@ -231,7 +231,6 @@ const toggleGroupItemClasses =
       <div
         class="xl:m-3 xl:h-[77vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
       >
-        <h1>{{ afdeling }}</h1>
       </div>
       <div
         class="xl:w-[30vw] 4xl:h-[77vh] xl:h-[75vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
