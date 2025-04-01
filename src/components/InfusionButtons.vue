@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
 const props = defineProps({
   department: String,
   ward: String,
@@ -16,10 +15,26 @@ const props = defineProps({
   softwareVersion: String,
   medicalLibraryVersion: String,
 })
+import { store } from '@/stores/infusionStore.js'
+
+
+
 const remainingPercentage = computed(() => (props.remainingMl / (props.totalMl / 100)).toFixed(1))
-const route = useRouter()
-function routeIt(infusionID) {
-  route.push({ name: 'Infusion-details', params: { infusionId: infusionID } })
+
+function storeIt(infusion) {
+    store.department= infusion.department
+    store.ward = infusion.ward
+    store.bed = infusion.bed
+    store.drug = infusion.drug
+    store.status = infusion.status
+    store.totalMl = infusion.totalMl
+    store.remainingMl = infusion.remainingMl
+    store.mlPerHour = infusion.mlPerHour
+    store.timeRunning = infusion.timeRunning
+    store.timeRemaining = infusion.timeRemaining
+    store.id = infusion.id
+    store.softwareVersion = infusion.softwareVersion
+    store.medicalLibraryVersion = infusion.medicalLibraryVersion
 }
 
 const backgroundClass = computed(() => {
@@ -48,7 +63,7 @@ const notifier = computed(() => {
 
 <template>
   <div>
-    <button @click="routeIt(props.id)" :class="notifier">
+    <button @click="storeIt(props)" :class="notifier">
       <div :class="backgroundClass">{{ remainingPercentage }}%</div>
       <div class="4xl:w-[6.85VW] w-[25vw] truncate text-ellipsis">
         {{ props.timeRemaining }}

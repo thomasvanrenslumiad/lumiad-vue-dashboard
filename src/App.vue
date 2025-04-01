@@ -5,6 +5,9 @@ import { provide, ref, watch } from 'vue'
 import { ToggleGroupItem, ToggleGroupRoot, Toggle } from 'radix-vue'
 import InfusionButtons from '@/components/InfusionButtons.vue'
 import { Icon } from '@iconify/vue'
+import { store } from '@/stores/infusionStore.js'
+import InfusionDetails from '@/components/infusionDetails.vue'
+import InfusionDetailsReworkNoRouter from '@/components/infusionDetailsReworkNoRouter.vue'
 
 let currentInfusions = AllInfusions
 
@@ -21,6 +24,10 @@ const options = [
 ]
 const afdeling = defineModel()
 provide('afdeling', afdeling)
+
+watch(store.id, (newDetailsId) => {
+  console.log(newDetailsId)
+})
 
 const sortChoice = ref(null)
 // a save location for the previous sorting choice to permit sorting in reverse
@@ -223,7 +230,7 @@ const toggleGroupItemClasses =
       <div
         class="xl:m-3 xl:h-[77vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
       >
-        <h1>{{ afdeling }}</h1>
+<!--        <h1>{{ store.id }}</h1>-->
       </div>
       <div
         class="xl:w-[30vw] w-[98vw] 4xl:h-[77vh] xl:h-[75vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
@@ -291,7 +298,8 @@ const toggleGroupItemClasses =
           id="infuusDetails"
           class="4XL:w-[98vw] xl:static xl:w-[96vw] flex-initial overflow-hidden rounded-[2vw] p-5 font-[Open_Sans] text-2xl text-ellipsis [&::-webkit-scrollbar]:[width:10px] [&::-webkit-scrollbar]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-400"
         >
-          <RouterView />
+          <!--          <RouterView />-->
+          <InfusionDetailsReworkNoRouter :id="store.id"></InfusionDetailsReworkNoRouter>
         </div>
       </div>
     </section>
