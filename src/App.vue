@@ -256,7 +256,7 @@ const toggleGroupItemClasses =
           <Toggle
             v-model:pressed="toggleState"
             aria-label="Toggle italic"
-            class="hover:bg-gray-200 text-black data-[state=on]:bg-blue-500 data-[state=on]:text-white flex items-center justify-center rounded bg-gray-50 border border-gray-300"
+            class="hover:bg-gray-100 text-black data-[state=on]:bg-blue-500 data-[state=on]:text-white flex items-center justify-center rounded bg-gray-50 border border-gray-300"
           >
             <Icon icon="radix-icons:caret-sort" class="color-black" />
           </Toggle>
