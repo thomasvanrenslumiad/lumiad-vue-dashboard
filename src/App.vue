@@ -234,7 +234,7 @@ const toggleGroupItemClasses =
         <h1>{{ afdeling }}</h1>
       </div>
       <div
-        class="xl:w-[30vw] w-[98vw] 4xl:h-[77vh] xl:h-[75vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
+        class="xl:w-[30vw] 4xl:h-[77vh] xl:h-[75vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
       >
         <div>
           <ToggleGroupRoot v-model="toggleStateMultiple" type="multiple" class="flex">
@@ -252,7 +252,7 @@ const toggleGroupItemClasses =
         <div class="grid grid-cols-8">
           <select
             v-model="sortChoice"
-            class="w-[95vw] col-span-7 xl:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:hover:bg-gray-400 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="w-[78vw] col-span-7 xl:w-full bg-gray-50 border border-gray-300 hover:bg-gray-100 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:hover:bg-gray-400 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option selected disabled>Sort by</option>
             <option value="remainingMl">remaining %IV</option>

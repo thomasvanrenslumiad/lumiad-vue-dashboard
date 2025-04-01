@@ -1,5 +1,5 @@
 <script setup>
-import { computed} from 'vue'
+import { computed } from 'vue'
 import { selectedButtoneStore } from '@/stores/selectedButtonStore.js'
 import { useRouter } from 'vue-router'
 const props = defineProps({
