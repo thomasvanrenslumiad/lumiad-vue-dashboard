@@ -229,8 +229,9 @@ const toggleGroupItemClasses =
     </header>
     <section class="xl:flex 4xl:h-[78.9vh] xl:h-[75vh] overflow-hidden dark:bg-black">
       <div
-        class="xl:m-3 xl:h-[77vh] h-[0vh] xl:w-[70vw] flex-initial md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
+        class="xl:m-3 xl:h-[77vh] h-[0vh] xl:w-[70vw] relative  md:rounded-[1vw] bg-gray-200 dark:bg-gray-500 p-2 xl:visible invisible"
       >
+        <div class=" 4xl:w-[40.5vw] xl:w-[54vw]  outline-8 rounded-xl outline-gray-500 relative 4xl:left-1/5 4xl:top-2 xl:left-36 xl:top-4"><div id="image-map-pro"></div></div>
       </div>
       <div
         class="xl:w-[30vw] 4xl:h-[77vh] xl:h-[75vh] m-3 flex-initial bg-gray-200 dark:bg-gray-500 md:rounded-[1vw] rounded-[3vw] p-2 overflow-x-hidden"
