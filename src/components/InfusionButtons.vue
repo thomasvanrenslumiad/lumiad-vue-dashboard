@@ -21,7 +21,7 @@ const props = defineProps({
 const remainingPercentage = computed(() => (props.remainingMl / (props.totalMl / 100)).toFixed(1))
 const route = useRouter()
 function routeIt(infusionID) {
-  selectedButtoneStore.id = infusionID
+  selectedButtoneStore.pressedButtonId = infusionID
   route.push({ name: 'Infusion-details', params: { infusionId: infusionID } })
 }
 
@@ -39,7 +39,7 @@ const backgroundClass = computed(() => {
 })
 
 const notifier = computed(() => {
-  if (props.id === selectedButtoneStore.id) {
+  if (props.id === selectedButtoneStore.pressedButtonId) {
     if (props.remainingMl === 0) {
       return 'm-2 flex 4xl:w-[27VW] xl:w-[25.5VW] md:w-[92vw] w-[86vw] cursor-pointer rounded-full bg-red-700 hover:bg-red-500 text-white outline-2 outline-offset-2 outline-red-800 outline-5 '
     } else if (props.mlPerHour === 0) {

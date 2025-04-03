@@ -5,6 +5,7 @@ import { provide, ref, watch, onMounted } from 'vue'
 import { ToggleGroupItem, ToggleGroupRoot, Toggle } from 'radix-vue'
 import InfusionButtons from '@/components/InfusionButtons.vue'
 import { Icon } from '@iconify/vue'
+import { selectedButtoneStore } from '@/stores/selectedButtonStore.js'
 
 let currentInfusions = AllInfusions
 
@@ -966,7 +967,7 @@ const initializeImageMapPro = () => {
                 stroke_color: '#c75757',
                 stroke_width: 4,
               },
-              actions: { click: 'run-script', script: "afdeling = 'Chirurgie'" },
+              actions: { script: "afdeling = 'Chirurgie'" },
               x_image_background: 15.330458192859018,
               y_image_background: 43.050933837890625,
               points: [
@@ -1004,7 +1005,7 @@ const initializeImageMapPro = () => {
                 stroke_color: '#c75757',
                 stroke_width: 4,
               },
-              actions: { click: 'run-script', script: "console.log('this is rooms 1')" },
+              actions: { script: "console.log('this is rooms 1')" },
               x_image_background: 10.626394588618734,
               y_image_background: 12.98843193054199,
               points: [
@@ -1037,8 +1038,26 @@ const initializeImageMapPro = () => {
       ],
       version: '6.0.30',
     })
+    addClickFunctions();
   } else {
     console.error('Image Map Pro script not loaded.')
+  }
+}
+
+function addClickFunctions() {
+  if (window.ImageMapPro) {
+    window.ImageMapPro.subscribe((action) => {
+      if (action.type === 'artboardChange' && action.payload.artboard === 'default-id') {
+        console.log('succes');
+        afdeling.value = 'Overzicht'
+      }
+    })
+
+    window.ImageMapPro.subscribe((action) => {
+      if (action.type === 'objectClick' && action.payload.object === 'Kraamzorg') {
+        afdeling.value = 'Verloskunde'
+      }
+    })
   }
 }
 
@@ -1068,16 +1087,26 @@ provide('afdeling', afdeling)
 onMounted(() => {
   // Set the first default value from the list
   afdeling.value = options[0]
+  selectedButtoneStore.currentDepartment = 'Overzicht'
 })
 const sortChoice = ref(null)
 // a save location for the previous sorting choice to permit sorting in reverse
 
 function filterAllInfusions(afdeling) {
+  selectedButtoneStore.currentDepartment = afdeling
   currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
 }
 function returnToAllInfusions() {
+  selectedButtoneStore.currentDepartment = 'Overzicht'
   currentInfusions = AllInfusions
 }
+watch(selectedButtoneStore.currentDepartment, (newAfdeling) => {
+  if (newAfdeling === 'Overzicht') {
+    returnToAllInfusions()
+    return
+  }
+  filterAllInfusions(newAfdeling)
+})
 
 watch(afdeling, (newAfdeling) => {
   if (newAfdeling === 'Overzicht') {
