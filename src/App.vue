@@ -1038,7 +1038,7 @@ const initializeImageMapPro = () => {
       ],
       version: '6.0.30',
     })
-    addClickFunctions();
+    addClickFunctions()
   } else {
     console.error('Image Map Pro script not loaded.')
   }
@@ -1048,7 +1048,7 @@ function addClickFunctions() {
   if (window.ImageMapPro) {
     window.ImageMapPro.subscribe((action) => {
       if (action.type === 'artboardChange' && action.payload.artboard === 'default-id') {
-        console.log('succes');
+        console.log('succes')
         afdeling.value = 'Overzicht'
       }
     })
