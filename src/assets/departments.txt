@@ -1,0 +1,2 @@
+
+'Intensive care', 'Child day treatment', 'Neonatology', 'Obstetric Suites', 'Ophthalmology', 'ENT (Ear, Nose, Throat)', 'Mamma Clinic', 'Gynaecology', 'Couplet Care', 'Logopedics', 'Palliative Care', 'Gastroenterology', 'Urology', 'Orthopaedics', 'Cardiology', 'Rehabilitation Medicine', 'Infectious Disease Prevention', 'Allergology', 'Palliative Care', 'Surgery', 'Jaw Surgery', 'Haematology', 'Rheumatology', 'Geriatrics', 'Radiology', 'Pathology', 'Pulmonology', 'Neurology', 'Neurosurgery', 'Anaesthesiology'

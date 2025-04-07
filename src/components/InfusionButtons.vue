@@ -4,6 +4,7 @@ import { selectedButtoneStore } from '@/stores/selectedButtonStore.js'
 import { useRouter } from 'vue-router'
 const props = defineProps({
   department: String,
+  floor: String,
   ward: String,
   bed: String,
   drug: String,
