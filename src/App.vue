@@ -2876,6 +2876,7 @@ watch(afdeling, (newAfdeling) => {
   }
   selectedButtoneStore.currentDepartment = newAfdeling
   filterAllInfusions(newAfdeling)
+  excecuteFilters()
 })
 
 function FilterNonRun() {
