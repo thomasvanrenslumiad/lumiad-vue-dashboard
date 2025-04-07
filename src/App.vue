@@ -2885,7 +2885,7 @@ function FilterNonRun() {
   if (currentInfusions.length === 0) {
     console.warn('No non-running infusions found.');
     // Optionally: show a message, reset state, or prevent further logic
-    return;
+
   }
 
 }
