@@ -2765,6 +2765,7 @@ onMounted(() => {
 
 const options = [
   'All departments',
+  'main floor',
   '1st floor',
   '2nd floor',
   '3rd floor',
@@ -2813,29 +2814,51 @@ const sortChoice = ref(null)
 
 function filterAllInfusions(afdeling) {
   selectedButtoneStore.currentDepartment = afdeling
-  if (['1st floor', '2nd floor', '3rd floor', '4th floor', '5th floor'].includes(afdeling)) {
-    currentInfusions = AllInfusions.filter(
-      (infusion) => infusion.floor === afdeling.substring(0, 3),
-    )
+  if (['main floor','1st floor', '2nd floor', '3rd floor', '4th floor', '5th floor'].includes(afdeling)) {
+    if (afdeling === 'main floor'){
+      currentInfusions = AllInfusions.filter(
+        (infusion) => infusion.floor === afdeling.substring(0, 4)
+      )
+    } else {
+      currentInfusions = AllInfusions.filter(
+        (infusion) => infusion.floor === afdeling.substring(0, 3)
+      )
+    }
     if (window.ImageMapPro) {
+      sortChoice.value = afdeling
       window.ImageMapPro.changeArtboard('diakonessenhuis', afdeling)
     }
   } else {
     currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
     if (window.ImageMapPro) {
-      window.ImageMapPro.changeArtboard('diakonessenhuis', currentInfusions[1].floor + ' floor')
+      window.ImageMapPro.changeArtboard('diakonessenhuis', currentInfusions[0].floor + ' floor')
       window.ImageMapPro.highlightObject('diakonessenhuis', afdeling)
     }
   }
 }
-function returnToAllInfusions() {
-  selectedButtoneStore.currentDepartment = 'All departments'
-  if (window.ImageMapPro) {
-    window.ImageMapPro.changeArtboard('diakonessenhuis', 'overview')
+function filterAllInfusionsNoMap(afdeling) {
+  selectedButtoneStore.currentDepartment = afdeling
+  if (['main floor','1st floor', '2nd floor', '3rd floor', '4th floor', '5th floor'].includes(afdeling)) {
+    if (afdeling === 'main floor'){
+      currentInfusions = AllInfusions.filter(
+        (infusion) => infusion.floor === afdeling.substring(0, 4)
+      )
+    } else {
+      currentInfusions = AllInfusions.filter(
+        (infusion) => infusion.floor === afdeling.substring(0, 3)
+      )
+    }
+
+  } else {
+    currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
   }
+}
+
+function returnToAllInfusions() {
   currentInfusions = AllInfusions
 }
 watch(selectedButtoneStore.currentDepartment, (newAfdeling) => {
+  console.log(newAfdeling)
   if (newAfdeling === 'All departments') {
     returnToAllInfusions()
     return
@@ -2845,9 +2868,13 @@ watch(selectedButtoneStore.currentDepartment, (newAfdeling) => {
 
 watch(afdeling, (newAfdeling) => {
   if (newAfdeling === 'All departments') {
+    if (window.ImageMapPro) {
+      window.ImageMapPro.changeArtboard('diakonessenhuis', 'overview')
+    }
     returnToAllInfusions()
     return
   }
+  selectedButtoneStore.currentDepartment = newAfdeling
   filterAllInfusions(newAfdeling)
 })
 
@@ -2855,6 +2882,12 @@ function FilterNonRun() {
   currentInfusions = currentInfusions.filter(
     (infusion) => infusion.timeRemaining === 'Infusion not running',
   )
+  if (currentInfusions.length === 0) {
+    console.warn('No non-running infusions found.');
+    // Optionally: show a message, reset state, or prevent further logic
+    return;
+  }
+
 }
 
 function FilterBelow10() {
@@ -2889,8 +2922,11 @@ function filterIt(value) {
       FilterLessThenHour()
       return
     case value === 'reset':
-      returnToAllInfusions()
-      sortInfusions(sortChoice.value)
+      if (afdeling.value === 'All departments') {
+        returnToAllInfusions()
+      } else {
+        filterAllInfusionsNoMap(afdeling.value)
+      }
   }
 }
 

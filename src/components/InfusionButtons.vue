@@ -68,10 +68,10 @@ const notifier = computed(() => {
         {{ props.timeRemaining }}
       </div>
       <div class="4xl:w-[6.85VW] w-[25vw] truncate pl-2 text-ellipsis">
-        {{ props.ward }}
+        {{ props.floor }}
       </div>
       <div class="4xl:w-[6.85VW] w-[25vw] truncate pl-2 text-ellipsis">
-        {{ props.bed }}
+        {{ props.department }}
       </div>
       <div
         class="4xl:w-[3.5VW] xl:w-[3VW] w-[20vw] rounded-2xl bg-red-500 truncate pl-2 text-ellipsis text-white"
