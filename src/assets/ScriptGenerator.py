@@ -6,10 +6,54 @@ import json
 
 # List of departments and drugs
 departments = [
-    "Spoedeisende Hulp", "Chirurgie", "Geriatrie", "Kardiochirurgie",
-    "Verloskunde", "Oncologie", "Pediatrie", "Psychiatrie"
+    'Intensive care', 'Child day treatment', 'Neonatology', 'Obstetric Suites',
+    'Ophthalmology', 'ENT (Ear, Nose, Throat)', 'Mamma Clinic', 'Gynaecology',
+    'Couplet Care', 'Logopedics', 'Palliative Care', 'Gastroenterology', 'Urology',
+    'Orthopaedics', 'Cardiology', 'Rehabilitation Medicine', 'Infectious Disease Prevention',
+    'Allergology', 'Palliative Care', 'Surgery', 'Jaw Surgery', 'Haematology', 'Rheumatology',
+    'Geriatrics', 'Radiology', 'Pathology', 'Pulmonology', 'Neurology', 'Neurosurgery', 'Anaesthesiology'
 ]
+def get_floor(department):
+    # Dictionary to map departments to their respective floors
+    department_to_floor = {
+        'Intensive care': 'main',
+        'Child day treatment': 'main',
+        'Neonatology': 'main',
+        'Obstetric Suites': 'main',
+        'Ophthalmology': 'main',
+        'ENT (Ear, Nose, Throat)': 'main',
+        'Mamma Clinic': 'main',
+        'Gynaecology': 'main',
+        'Couplet Care': 'main',
+        'Logopedics': 'main',
 
+        'Palliative Care': '1st',
+        'Gastroenterology': '1st',
+        'Urology': '1st',
+        'Orthopaedics': '1st',
+        'Cardiology': '1st',
+        'Rehabilitation Medicine': '1st',
+
+        'Infectious Disease Prevention': '2nd',
+        'Allergology': '2nd',
+        'Surgery': '2nd',
+        'Jaw Surgery': '2nd',
+
+        'Haematology': '3rd',
+        'Rheumatology': '3rd',
+        'Geriatrics': '3rd',
+        'Radiology': '3rd',
+        'Pathology': '3rd',
+
+        'Pulmonology': '4th',
+        'Neurology': '4th',
+
+        'Neurosurgery': '5th',
+        'Anaesthesiology': '5th'
+    }
+
+    # Get the floor based on the department
+    return department_to_floor.get(department, "Unknown Department")
 drugs = [
     "morphine", "fentanyl", "ketamine", "propofol", "midazolam",
     "lorazepam", "dexmedetomidine", "naloxone", "pentobarbital", "remifentanil", "hydromorphone"
@@ -22,6 +66,7 @@ def generate_data(num_entries):
 
     while len(data) < num_entries:
         department = random.choice(departments)
+        floor = get_floor(department)
         ward = f"ward {random.randint(1, 6)}"
         tempbed = random.randint(1, 16)
         if tempbed < 10:
@@ -76,6 +121,7 @@ def generate_data(num_entries):
             unique_ids.add(id_number)
             data.append({
                 "department": department,
+                "floor": floor,
                 "ward": ward,
                 "bed": bed,
                 "drug": pumpdrugname,
@@ -93,7 +139,7 @@ def generate_data(num_entries):
     return data
 
 # Generate 500 entries
-generated_data = generate_data(500)
+generated_data = generate_data(100)
 
 # Convert to JSON format
 json_data = json.dumps(generated_data, indent=2)
@@ -102,4 +148,4 @@ json_data = json.dumps(generated_data, indent=2)
 with open("generated_data_unique_with_time.json", "w") as file:
     file.write(json_data)
 
-print("500 unique entries generated and saved to 'generated_data_unique_with_time.json'.")
+print("1500 unique entries generated and saved to 'generated_data_unique_with_time.json'.")
