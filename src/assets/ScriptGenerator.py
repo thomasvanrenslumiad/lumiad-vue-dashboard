@@ -139,7 +139,7 @@ def generate_data(num_entries):
     return data
 
 # Generate 500 entries
-generated_data = generate_data(100)
+generated_data = generate_data(800)
 
 # Convert to JSON format
 json_data = json.dumps(generated_data, indent=2)

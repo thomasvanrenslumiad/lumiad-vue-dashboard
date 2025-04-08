@@ -2978,9 +2978,9 @@ function sortInfusions(newSortChoice) {
         reverse()
       }
       return
-    case newSortChoice === 'ward': {
+    case newSortChoice === 'department': {
       currentInfusions = currentInfusions.reduce((acc, curr) => {
-        let ind = acc.findIndex((item) => item.ward > curr.ward)
+        let ind = acc.findIndex((item) => item.department > curr.department)
         if (ind === -1) ind = acc.length
         acc.splice(ind, 0, curr)
         currentInfusions = acc
@@ -3112,7 +3112,7 @@ const toggleGroupItemClasses =
             <option selected disabled>Sort by</option>
             <option value="remainingMl">remaining %IV</option>
             <option value="time">Remaining time</option>
-            <option value="ward">Ward</option>
+            <option value="department">Department</option>
             <option value="bed">bed</option>
             <option value="drug">Drug</option>
           </select>
