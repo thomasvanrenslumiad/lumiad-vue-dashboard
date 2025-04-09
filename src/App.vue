@@ -2814,14 +2814,18 @@ const sortChoice = ref(null)
 
 function filterAllInfusions(afdeling) {
   selectedButtoneStore.currentDepartment = afdeling
-  if (['main floor','1st floor', '2nd floor', '3rd floor', '4th floor', '5th floor'].includes(afdeling)) {
-    if (afdeling === 'main floor'){
+  if (
+    ['main floor', '1st floor', '2nd floor', '3rd floor', '4th floor', '5th floor'].includes(
+      afdeling,
+    )
+  ) {
+    if (afdeling === 'main floor') {
       currentInfusions = AllInfusions.filter(
-        (infusion) => infusion.floor === afdeling.substring(0, 4)
+        (infusion) => infusion.floor === afdeling.substring(0, 4),
       )
     } else {
       currentInfusions = AllInfusions.filter(
-        (infusion) => infusion.floor === afdeling.substring(0, 3)
+        (infusion) => infusion.floor === afdeling.substring(0, 3),
       )
     }
     if (window.ImageMapPro) {
@@ -2838,17 +2842,20 @@ function filterAllInfusions(afdeling) {
 }
 function filterAllInfusionsNoMap(afdeling) {
   selectedButtoneStore.currentDepartment = afdeling
-  if (['main floor','1st floor', '2nd floor', '3rd floor', '4th floor', '5th floor'].includes(afdeling)) {
-    if (afdeling === 'main floor'){
+  if (
+    ['main floor', '1st floor', '2nd floor', '3rd floor', '4th floor', '5th floor'].includes(
+      afdeling,
+    )
+  ) {
+    if (afdeling === 'main floor') {
       currentInfusions = AllInfusions.filter(
-        (infusion) => infusion.floor === afdeling.substring(0, 4)
+        (infusion) => infusion.floor === afdeling.substring(0, 4),
       )
     } else {
       currentInfusions = AllInfusions.filter(
-        (infusion) => infusion.floor === afdeling.substring(0, 3)
+        (infusion) => infusion.floor === afdeling.substring(0, 3),
       )
     }
-
   } else {
     currentInfusions = AllInfusions.filter((infusion) => infusion.department === afdeling)
   }
@@ -2884,11 +2891,9 @@ function FilterNonRun() {
     (infusion) => infusion.timeRemaining === 'Infusion not running',
   )
   if (currentInfusions.length === 0) {
-    console.warn('No non-running infusions found.');
+    console.warn('No non-running infusions found.')
     // Optionally: show a message, reset state, or prevent further logic
-
   }
-
 }
 
 function FilterBelow10() {
