@@ -14,14 +14,20 @@ const initializeImageMapPro = () => {
     window.ImageMapPro.init('#image-map-pro', {
       id: 'a7efa49f-86a0-42aa-99c9-f329941c546e',
       general: { name: 'diakonessenhuis' },
-      tooltips: { enable_tooltips: false, sticky_tooltips: true, fullscreen_tooltips: 'none' },
+      tooltips: {
+        enable_tooltips: false,
+        sticky_tooltips: true,
+        constrain_tooltips: false,
+        fullscreen_tooltips: 'none',
+      },
       object_list: {
-        enable_object_list: true,
-        menu_style: 'detached',
         enable_search: false,
-        show_groups: false,
         show_only_objects_from_active_artboard: true,
         hide_static_objects: false,
+      },
+      custom_code: {
+        custom_css: '.imp-ui-layers-menu-wrap {\n  display: none;\n}',
+        preview_custom_css: true,
       },
       artboards: [
         {
@@ -460,7 +466,6 @@ const initializeImageMapPro = () => {
                 stroke_color: '#130fff',
                 stroke_width: 4,
               },
-              tooltip: { enable_tooltip: false },
               tooltip_content: [
                 {
                   type: 'Heading',
@@ -1331,6 +1336,10 @@ const initializeImageMapPro = () => {
                   id: 'fdec87ee-634e-44cd-95af-dd76bda3c8eb',
                 },
               ],
+              actions: {
+                click: 'change-artboard',
+                artboard: '46465bbf-e07e-439f-b776-8d154504afbc',
+              },
               x_image_background: 10.700964506439101,
               y_image_background: 13.140985488891602,
               points: [
@@ -1669,6 +1678,34 @@ const initializeImageMapPro = () => {
               mouseover_style: { icon_fill: '#00d5ff' },
               tooltip: { enable_tooltip: false },
               actions: { click: 'change-artboard', artboard: 'default-id' },
+            },
+          ],
+        },
+        {
+          id: '46465bbf-e07e-439f-b776-8d154504afbc',
+          title: 'Gastroenterology',
+          background_type: 'image',
+          image_url: 'https://i.postimg.cc/VvjJjC6r/inzoom-1.jpg',
+          width: 1132,
+          height: 800,
+          use_image_size: true,
+          children: [
+            {
+              id: '7d6aea50-afc4-498f-b5fe-4742f679d934',
+              title: 'Return',
+              x: 6.681782322174927,
+              y: 12.773758937930573,
+              default_style: {
+                icon_svg:
+                  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c17.67 0 32 14.33 32 32v256c0 17.67-14.33 32-32 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c53.02 0 96-42.98 96-96V128C512 74.98 469 32 416 32zM342.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L242.8 224H32C14.31 224 0 238.3 0 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C355.1 266.1 355.1 245.9 342.6 233.4z"/></svg>',
+                icon_fill: '#2432ff',
+              },
+              mouseover_style: { icon_fill: '#00d5ff' },
+              tooltip: { enable_tooltip: false },
+              actions: {
+                click: 'change-artboard',
+                artboard: '56ad6ec0-7b5f-40d7-ab66-3d34d9b6e1e1',
+              },
             },
           ],
         },
@@ -2433,7 +2470,7 @@ const initializeImageMapPro = () => {
           use_image_size: true,
           children: [
             {
-              id: '7d6aea50-afc4-498f-b5fe-4742f679d934',
+              id: '3b53da75-2e6f-4425-98e0-7849b8be02a9',
               title: 'Return',
               x: 6.681782322174927,
               y: 12.773758937930573,
@@ -3048,6 +3085,9 @@ function reverse() {
 }
 const toggleGroupItemClasses =
   'hover:bg-gray-100  data-[state=on]:bg-blue-500 data-[state=on]:text-white  flex h-[35px] xl:w-[20vw] md:w-[35vw] w-[30vw] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none dark:bg-gray-300  dark:border-gray-600 dark:hover:bg-gray-400 dark:data-[state=on]:bg-gray-400 '
+
+// let div = document.querySelector(".imp-ui-layers-menu-wrap");
+// div.classList.add('hidden');
 </script>
 
 <template>
